@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yihao.shjingshuiji.cn/sitemap-index.xml

@@ -1,0 +1,46 @@
+import type { GlobalId, HonorKey, ResearchId, Section, VentureId } from '@/data/site';
+
+export interface LocaleContent {
+  code: string;
+  dir: 'ltr' | 'rtl';
+  meta: { title: string; description: string };
+  nav: Record<Section, string>;
+  home: {
+    subtitle: string;
+    role: string;
+    enter: string;
+    skip: string;
+    loading: string;
+    quickContact: string;
+    downloadCv: string;
+    cvPending: string;
+    reduceMotion: string;
+    restoreMotion: string;
+    twoD: string;
+    explore: string;
+    canvasLabel: string;
+    fallbackTitle: string;
+  };
+  common: {
+    home: string;
+    back: string;
+    menu: string;
+    language: string;
+    viewDetails: string;
+    contentPending: string;
+    verifiedFactsOnly: string;
+    close: string;
+  };
+  sectionMeta: Record<Section, { kicker: string; title: string; summary: string }>;
+  about: Array<{ title: string; body: string }>;
+  research: Record<ResearchId, { title: string; question: string; description: string }>;
+  publications: { emptyTitle: string; emptyBody: string; filters: string[] };
+  ventures: Record<VentureId, { title: string; descriptor: string }>;
+  ventureFields: Record<'problem' | 'solution' | 'role' | 'progress' | 'impact' | 'gallery' | 'link', string>;
+  honors: Record<HonorKey, string>;
+  global: Record<GlobalId, { title: string; body: string }>;
+  life: { title: string; body: string };
+  contact: { title: string; body: string; unavailable: string; copy: string; save: string };
+}
+
+export const defineLocale = (locale: LocaleContent) => locale;

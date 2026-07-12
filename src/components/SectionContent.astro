@@ -1,0 +1,62 @@
+---
+import type { LocaleContent } from '@/content/schema';
+import { GLOBAL_IDS, HONORS, RESEARCH_IDS, VENTURE_IDS, type Section } from '@/data/site';
+import { publications } from '@/data/publications';
+import { contact } from '@/data/contact';
+import { routeFor } from '@/utils/routes';
+import type { Lang } from '@/data/site';
+
+interface Props { lang: Lang; section: Section; locale: LocaleContent }
+const { lang, section, locale } = Astro.props;
+const fields = Object.values(locale.ventureFields);
+const visibleContacts = Object.entries(contact).filter(([key, value]) => key !== 'vcardPath' && key !== 'cvPath' && Boolean(value));
+---
+{section === 'about' && (
+  <div class="fact-grid">
+    {locale.about.map((item, index) => <article class="fact-item"><span class="section-index">0{index + 1}</span><h2>{item.title}</h2><p>{item.body}</p></article>)}
+  </div>
+)}
+
+{section === 'research' && (
+  <div class="research-grid">
+    {RESEARCH_IDS.map((id, index) => <article class="research-card"><span class="section-index">R / 0{index + 1}</span><h2>{locale.research[id].title}</h2><p class="research-question">{locale.research[id].question}</p><p class="research-description">{locale.research[id].description}</p></article>)}
+  </div>
+)}
+
+{section === 'publications' && (
+  <section>
+    <ul class="status-pills" aria-label="Publication status filters">{locale.publications.filters.map((filter) => <li>{filter}</li>)}</ul>
+    {publications.length === 0 && <div class="empty-state"><div class="orbital-mark" aria-hidden="true"></div><h2>{locale.publications.emptyTitle}</h2><p>{locale.publications.emptyBody}</p><p><small>{locale.common.verifiedFactsOnly}</small></p></div>}
+  </section>
+)}
+
+{section === 'ventures' && (
+  <div class="venture-list">
+    {VENTURE_IDS.map((id, index) => <article class="venture"><div><span class="section-index">V / 0{index + 1}</span><h2>{locale.ventures[id].title}</h2><p>{locale.ventures[id].descriptor}</p></div><dl class="venture-fields">{fields.map((field) => <div class="venture-field"><dt>{field}</dt><dd>{locale.common.contentPending}</dd></div>)}</dl></article>)}
+  </div>
+)}
+
+{section === 'honors' && (
+  <div class="honors-orbit">
+    {HONORS.map((honor) => <article class="honor"><time datetime={String(honor.year)}>{honor.year}</time><h2>{locale.honors[honor.key]}</h2></article>)}
+  </div>
+)}
+
+{section === 'global' && (
+  <div class="global-track">
+    {GLOBAL_IDS.map((id) => <article class="global-stop"><h2>{locale.global[id].title}</h2><p>{locale.global[id].body}</p></article>)}
+  </div>
+)}
+
+{section === 'life' && (
+  <article class="quiet-card"><h2>{locale.life.title}</h2><p>{locale.life.body}</p><p><small>{locale.common.verifiedFactsOnly}</small></p></article>
+)}
+
+{section === 'contact' && (
+  <article class="quiet-card"><h2>{locale.contact.title}</h2><p>{locale.contact.body}</p>{visibleContacts.length === 0 ? <p>{locale.contact.unavailable}</p> : <ul>{visibleContacts.map(([key, value]) => <li><a href={String(value)}>{key}</a></li>)}</ul>}<div class="contact-actions"><a class="button" href={`${import.meta.env.BASE_URL}contact/yihao-bian.vcf`} download>{locale.contact.save}</a><span class="button-muted" aria-disabled="true">{locale.contact.copy}</span></div></article>
+)}
+
+<footer class="page-footer">
+  <a href={routeFor(lang)}>← {locale.common.back}</a>
+  <span>YIHAO NEXUS · {new Date().getFullYear()}</span>
+</footer>

@@ -1,0 +1,41 @@
+import { defineLocale } from '../schema';
+
+export default defineLocale({
+  code: 'ja', dir: 'ltr',
+  meta: { title: 'Yihao Bian｜水・科学・イノベーション', description: '飲料水安全を研究する博士課程学生であり、環境技術起業家でもあるYihao Bianのパーソナル・ユニバース。' },
+  nav: { about: 'プロフィール', research: '研究', publications: '論文', ventures: '事業', honors: '受賞', global: '国際交流', life: 'ライフ', contact: '連絡先' },
+  home: { subtitle: '水・科学・イノベーション', role: '博士課程 · 研究者 · 創業者', enter: 'Nexusへ入る', skip: '体験をスキップ', loading: '接続を調整中', quickContact: 'クイック連絡', downloadCv: 'CVをダウンロード', cvPending: 'CV準備中', reduceMotion: '動きを減らす', restoreMotion: '動きを戻す', twoD: '2D表示を使う', explore: 'ノードを選んでください', canvasLabel: '8つの知識ノードが中心を周回するインタラクティブな個人宇宙。', fallbackTitle: '個人宇宙を探索する' },
+  common: { home: 'Nexus', back: 'Nexusへ戻る', menu: 'ナビゲーション', language: '言語', viewDetails: '詳しく見る', contentPending: '確認済み情報を準備中', verifiedFactsOnly: 'このページには確認済みの情報のみを掲載しています。', close: '閉じる' },
+  sectionMeta: {
+    about: { kicker: '01 / 重力の中心', title: 'システムを横断する研究者', summary: '飲料水研究、環境工学、起業、国際交流をつなぎます。' },
+    research: { kicker: '02 / 動き続ける問い', title: 'より安全な水システムの研究', summary: '処理界面から配水ネットワーク、新たな環境課題まで、6つの研究方向が連結します。' },
+    publications: { kicker: '03 / エビデンス・アーカイブ', title: '論文・成果', summary: '確認済みの論文と研究成果を扱うデータ駆動型の記録です。' },
+    ventures: { kicker: '04 / 洞察から行動へ', title: '環境技術ベンチャー', summary: '水科学とデジタル思考を実践的な解決策へつなぐ取り組みです。' },
+    honors: { kicker: '05 / 評価のシグナル', title: '受賞の軌道', summary: '学術とイノベーションの受賞を星座のように配置します。' },
+    global: { kicker: '06 / 境界を越えて', title: '国際交流', summary: '環境と持続可能性をめぐる地域対話、国際学習、将来の協働です。' },
+    life: { kicker: '07 / 研究室の外側', title: '生活と視点', summary: '確認された興味、旅、文化交流を今後記録する場所です。' },
+    contact: { kicker: '08 / オープン・チャンネル', title: '対話を始める', summary: '確認済みの連絡先のみを掲載します。' },
+  },
+  about: [
+    { title: '教育', body: '同済大学環境科学与工程学院の博士課程学生。' },
+    { title: '研究領域', body: '環境工学と飲料水安全を、実際の水システムと結び付けて研究します。' },
+    { title: '起業', body: '上海晶水済環保科技有限公司の創業者。' },
+    { title: 'リーダーシップ', body: '学術研究、工学的協働、イノベーションの交点で活動します。' },
+    { title: '個人ミッション', body: '厳密な水科学を、人のニーズ、有用な技術、国際協力につなぐことです。' },
+  ],
+  research: {
+    'drinking-water': { title: '飲料水安全', question: '水源から蛇口まで安全を保つには？', description: '飲料水安全を、水質、処理、輸送、最終的な曝露がつながるシステムとして捉えます。手法や結果は確認済みの研究資料に基づいてのみ追加します。' },
+    biofilms: { title: '配水システムのバイオフィルム', question: 'バイオフィルムは配水中の水質をどう変えるか？', description: 'バイオフィルムをインフラ内の生命界面として捉え、管内環境、微生物過程、水質変化との関係を考えます。生物種や結論は資料確認前に推測しません。' },
+    'heavy-metals': { title: '重金属の移行', question: '金属の溶出、輸送、変換を何が制御するか？', description: '水化学、インフラ表面、運転条件の相互作用から重金属移行を捉えます。機構、分析法、リスクは確認後に記録します。' },
+    disinfection: { title: '消毒と細菌性エンドトキシン', question: '耐性成分を見落とさず微生物リスクを制御するには？', description: '消毒戦略、微生物不活化、細菌性エンドトキシンの関係を扱います。未確認の条件や効果は掲載しません。' },
+    nanofiltration: { title: 'ナノろ過と資源回収', question: '選択的分離で処理と資源回収を両立できるか？', description: 'ナノろ過を分離プロセスであると同時に資源循環型処理の基盤として考えます。材料、性能、回収経路は確認後に追加します。' },
+    microplastics: { title: '北極圏のマイクロプラスチック', question: '遠隔環境はマイクロプラスチックの移動をどう示すか？', description: '水の視点を長距離環境過程へ広げます。場所、調査、協力者、結果は確認できるまで意図的に特定しません。' },
+  },
+  publications: { emptyTitle: '論文リストを確認中です。', emptyBody: '論文名、雑誌名、DOIは作成していません。確認後、中央データファイルから追加できます。', filters: ['掲載済み', '査読中', '準備中'] },
+  ventures: { jingshuiji: { title: '晶水済 高品質直飲水', descriptor: '課題、解決策、役割、進捗、インパクトを確認後に掲載する構造です。' }, 'silent-aid': { title: '晶水默助', descriptor: '「一帯一路」を視野に入れた高品質飲料水の国際協力構想。詳細は確認が必要です。' }, 'ing-products': { title: 'INGデジタルプロダクト', descriptor: '確認済みの環境技術・デジタル製品を掲載する場所です。' } },
+  ventureFields: { problem: '課題', solution: '解決策', role: '私の役割', progress: '進捗', impact: 'インパクト', gallery: 'ギャラリー', link: '外部リンク' },
+  honors: { nationalScholarship: '2025年 博士課程国家奨学金', beijingGraduate: '2024年 北京市優秀卒業生', masterThesis: '2024年 優秀修士学位論文', academicTalent: '2025年 同済大学環境科学与工程学院 十佳「学術達人」', marineForum: '2025年 第8回全国大学院生環境（海洋関連）フォーラム 特等賞', tongjiInnovation: '2025年 第4回環同済イノベーション・起業・創意コンテスト 一等賞', ecoCompetition: '2025年 第20回全国環境友好科学技術コンテスト華東・華南地区 一等賞', innovationSilver: '2025年 中国国際大学生イノベーション大会産業トラック 同済大学銀賞' },
+  global: { regionalExchange: { title: '日中韓博士学生交流', body: '環境と持続可能な発展に関する地域対話。日程・機関・内容は確認中です。' }, gist: { title: '韓国GISTでの交流', body: '確認済みのプログラム背景と経験を今後掲載します。' }, summerSchool: { title: '国際サマースクール', body: 'プログラム、場所、テーマ、参加内容のための構造です。' }, collaboration: { title: '異文化間の学術協働', body: '分野、機関、文化的視点を結ぶ確認済み協働を記録します。' }, future: { title: '今後の国際交流', body: '水安全、環境工学、責任あるイノベーションに関する対話に開かれています。' } },
+  life: { title: '意図的に余白を残す、人としての層', body: '個人的な興味はまだ確認されていません。趣味、技能、経験を推測して掲載しません。' },
+  contact: { title: '確認済みの連絡先のみ', body: 'メールとソーシャルリンクは提供・確認後に表示します。', unavailable: '連絡先を準備中です。', copy: '連絡先をコピー', save: '連絡先を保存' },
+});

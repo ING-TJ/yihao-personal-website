@@ -1,0 +1,25 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SectionContent from '@/components/SectionContent.astro';
+import { getLocale } from '@/content/locales';
+import { LANGUAGES, SECTIONS, type Lang, type Section } from '@/data/site';
+
+export function getStaticPaths() {
+  return LANGUAGES.flatMap((lang) => SECTIONS.map((section) => ({ params: { lang, section } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const section = Astro.params.section as Section;
+const locale = getLocale(lang);
+const meta = locale.sectionMeta[section];
+---
+<BaseLayout lang={lang} section={section} title={meta.title} description={meta.summary}>
+  <div class="page-shell">
+    <header class="page-hero">
+      <p class="kicker">{meta.kicker}</p>
+      <h1 class="page-title">{meta.title}</h1>
+      <p class="page-summary">{meta.summary}</p>
+    </header>
+    <div class="content-wrap"><SectionContent lang={lang} section={section} locale={locale} /></div>
+  </div>
+</BaseLayout>
