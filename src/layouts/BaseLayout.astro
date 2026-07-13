@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css';
 import { ENABLED_LOCALES, LANGUAGE_NAMES, PRIMARY_SECTIONS, SITE, type Lang, type Section } from '@/data/site';
+import { contact, contactSameAs, primaryContactEmail } from '@/data/contact';
 import { getLocale } from '@/content/locales';
 import { pathFor, routeFor } from '@/utils/routes';
 
@@ -33,6 +34,9 @@ const jsonLd = {
   affiliation: { '@type': 'CollegeOrUniversity', name: SITE.affiliation.name },
   founder: { '@type': 'Organization', name: SITE.organization.name },
   jobTitle: ['PhD Candidate', 'Researcher', 'Founder'],
+  ...(primaryContactEmail ? { email: primaryContactEmail } : {}),
+  ...(contact.phone ? { telephone: contact.phone } : {}),
+  ...(contactSameAs.length > 0 ? { sameAs: contactSameAs } : {}),
 };
 ---
 <!doctype html>

@@ -8,18 +8,8 @@ export interface LocaleContent {
   home: {
     subtitle: string;
     role: string;
-    enter: string;
-    skip: string;
-    loading: string;
     quickContact: string;
     downloadCv: string;
-    cvPending: string;
-    reduceMotion: string;
-    restoreMotion: string;
-    twoD: string;
-    explore: string;
-    canvasLabel: string;
-    fallbackTitle: string;
   };
   homeV2?: {
     eyebrow: string;
@@ -47,7 +37,6 @@ export interface LocaleContent {
     menu: string;
     language: string;
     viewDetails: string;
-    contentPending: string;
     verifiedFactsOnly: string;
     close: string;
   };
@@ -60,7 +49,12 @@ export interface LocaleContent {
   honors: Record<HonorKey, string>;
   global: Record<GlobalId, { title: string; body: string }>;
   life: { title: string; body: string };
-  contact: { title: string; body: string; unavailable: string; copy: string; save: string };
+  contact: {
+    copy: string;
+    copied: string;
+    save: string;
+    fields: Record<'academicEmail' | 'companyEmail' | 'phone' | 'wechat' | 'instagram' | 'linkedin' | 'github' | 'orcid' | 'researchGate' | 'cvEnglish' | 'cvChinese' | 'institution' | 'location', string>;
+  };
 }
 
 export const defineLocale = (locale: LocaleContent) => locale;

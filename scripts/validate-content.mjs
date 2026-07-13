@@ -16,8 +16,11 @@ for (const lang of languages) {
 }
 
 const contact = JSON.parse(fs.readFileSync(path.resolve('src/data/contact.config.json'), 'utf8'));
-for (const key of ['email', 'phone', 'wechat', 'instagram', 'linkedin', 'github', 'orcid']) {
+for (const key of ['academicEmail', 'companyEmail', 'phone', 'wechat', 'instagram', 'linkedin', 'github', 'orcid', 'researchGate']) {
   if (contact[key] && /example|placeholder|test/i.test(contact[key])) failures.push(`Fake-looking contact value: ${key}`);
+}
+for (const key of ['instagram', 'linkedin', 'github', 'orcid', 'researchGate']) {
+  if (contact[key] && !/^https:\/\//i.test(contact[key])) failures.push(`External contact must use an HTTPS URL: ${key}`);
 }
 
 if (failures.length) {

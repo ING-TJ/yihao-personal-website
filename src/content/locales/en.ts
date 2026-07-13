@@ -4,11 +4,11 @@ export default defineLocale({
   code: 'en', dir: 'ltr',
   meta: {
     title: 'Yihao Bian — Water, Science & Innovation',
-    description: 'The personal nexus of Yihao Bian, a doctoral researcher in drinking-water safety and an environmental technology founder.',
+    description: 'The personal website of Yihao Bian, a doctoral researcher in drinking-water safety and an environmental technology founder.',
   },
   nav: { about: 'About', research: 'Research', publications: 'Publications', ventures: 'Ventures', honors: 'Honors', global: 'Global', life: 'Life', contact: 'Contact' },
   home: {
-    subtitle: 'Water · Science · Innovation', role: 'PhD Candidate · Researcher · Founder', enter: 'Enter the nexus', skip: 'Skip experience', loading: 'Calibrating the nexus', quickContact: 'Quick contact', downloadCv: 'Download CV', cvPending: 'CV coming soon', reduceMotion: 'Reduce motion', restoreMotion: 'Restore motion', twoD: 'Use 2D view', explore: 'Choose a node to explore', canvasLabel: 'An interactive personal universe with eight orbiting knowledge nodes.', fallbackTitle: 'Explore the personal universe',
+    subtitle: 'Water · Science · Innovation', role: 'PhD Candidate · Researcher · Founder', quickContact: 'Quick contact', downloadCv: 'Download CV',
   },
   homeV2: {
     eyebrow: 'Environmental Engineering · Drinking Water Safety',
@@ -30,16 +30,16 @@ export default defineLocale({
     viewAll: 'View all',
     roleLabel: 'Role',
   },
-  common: { home: 'Nexus', back: 'Back to nexus', menu: 'Navigation', language: 'Language', viewDetails: 'Explore', contentPending: 'Verified details pending', verifiedFactsOnly: 'This page intentionally shows only verified information.', close: 'Close' },
+  common: { home: 'Home', back: 'Back to home', menu: 'Navigation', language: 'Language', viewDetails: 'Explore', verifiedFactsOnly: 'This page intentionally shows only verified information.', close: 'Close' },
   sectionMeta: {
-    about: { kicker: '01 / Center of gravity', title: 'A researcher working across systems', summary: 'Yihao connects drinking-water research, environmental engineering, entrepreneurship and international exchange.' },
-    research: { kicker: '02 / Questions in motion', title: 'Research for safer water systems', summary: 'Six connected directions examine water quality from treatment interfaces to distribution networks and emerging environments.' },
-    publications: { kicker: '03 / Evidence archive', title: 'Publications', summary: 'A data-driven scholarly record prepared for verified journal articles, manuscripts and works in progress.' },
-    ventures: { kicker: '04 / From insight to action', title: 'Environmental ventures', summary: 'Initiatives translating water science and digital thinking into practical, collaborative solutions.' },
-    honors: { kicker: '05 / Signals of recognition', title: 'Honors in orbit', summary: 'Selected academic and innovation recognitions, arranged as a constellation rather than a conventional timeline.' },
-    global: { kicker: '06 / Across boundaries', title: 'Global exchange', summary: 'Regional dialogue, international study and future-facing collaboration around environment and sustainability.' },
-    life: { kicker: '07 / Beyond the laboratory', title: 'Life and perspective', summary: 'A quieter view of the perspectives surrounding research, engineering and entrepreneurship.' },
-    contact: { kicker: '08 / Open channel', title: 'Start a conversation', summary: 'For research exchange, environmental technology collaboration and project conversations.' },
+    about: { kicker: '01 / Profile', title: 'A researcher working across systems', summary: 'Yihao connects drinking-water research, environmental engineering, entrepreneurship and international exchange.' },
+    research: { kicker: '02 / Research directions', title: 'Research for safer water systems', summary: 'Six connected directions examine water quality from treatment interfaces to distribution networks and emerging environments.' },
+    publications: { kicker: '03 / Scholarly record', title: 'Publications', summary: 'A structured scholarly record for verified journal articles and manuscripts.' },
+    ventures: { kicker: '04 / Practice', title: 'Environmental ventures', summary: 'Initiatives translating water science and digital thinking into practical, collaborative solutions.' },
+    honors: { kicker: '05 / Recognition', title: 'Honors and recognition', summary: 'Selected academic and innovation recognitions presented as a concise record.' },
+    global: { kicker: '06 / International exchange', title: 'Global exchange', summary: 'Regional dialogue, international study and collaboration around environment and sustainability.' },
+    life: { kicker: '07 / Beyond research', title: 'Life and perspective', summary: 'A quieter view of the perspectives surrounding research, engineering and entrepreneurship.' },
+    contact: { kicker: '08 / Contact', title: 'Contact', summary: 'For academic collaboration, research exchange, environmental technology projects and international communication.' },
   },
   about: [
     { title: 'Education', body: 'Doctoral candidate at the College of Environmental Science and Engineering, Tongji University.' },
@@ -74,5 +74,8 @@ export default defineLocale({
     future: { title: 'Future directions', body: 'Open to international conversations around water safety, environmental engineering and responsible innovation.' },
   },
   life: { title: 'Beyond the laboratory', body: 'A quieter view of the perspectives surrounding research, engineering and entrepreneurship.' },
-  contact: { title: 'Start a conversation', body: 'For research exchange, environmental technology collaboration and thoughtful project conversations.', unavailable: '', copy: 'Copy contact', save: 'Save contact' },
+  contact: {
+    copy: 'Copy', copied: 'Copied', save: 'Save contact',
+    fields: { academicEmail: 'Academic', companyEmail: 'Business', phone: 'Phone', wechat: 'WeChat', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: 'English CV', cvChinese: 'Chinese CV', institution: 'Institution', location: 'Location' },
+  },
 });

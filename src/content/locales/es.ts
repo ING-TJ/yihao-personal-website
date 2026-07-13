@@ -2,19 +2,19 @@ import { defineLocale } from '../schema';
 
 export default defineLocale({
   code: 'es', dir: 'ltr',
-  meta: { title: 'Yihao Bian — Agua · Ciencia · Innovación', description: 'El universo personal de Yihao Bian, doctorando en seguridad del agua potable y fundador de tecnología ambiental.' },
+  meta: { title: 'Yihao Bian — Agua · Ciencia · Innovación', description: 'El sitio personal de Yihao Bian, doctorando en seguridad del agua potable y fundador de tecnología ambiental.' },
   nav: { about: 'Perfil', research: 'Investigación', publications: 'Publicaciones', ventures: 'Proyectos', honors: 'Distinciones', global: 'Internacional', life: 'Vida', contact: 'Contacto' },
-  home: { subtitle: 'Agua · Ciencia · Innovación', role: 'Doctorando · Investigador · Fundador', enter: 'Entrar en el nexo', skip: 'Omitir experiencia', loading: 'Calibrando el nexo', quickContact: 'Contacto rápido', downloadCv: 'Descargar CV', cvPending: 'CV próximamente', reduceMotion: 'Reducir movimiento', restoreMotion: 'Restaurar movimiento', twoD: 'Usar vista 2D', explore: 'Elige un nodo', canvasLabel: 'Un universo personal interactivo con ocho nodos en órbita.', fallbackTitle: 'Explorar el universo personal' },
-  common: { home: 'Nexo', back: 'Volver al nexo', menu: 'Navegación', language: 'Idioma', viewDetails: 'Explorar', contentPending: 'Detalles verificados pendientes', verifiedFactsOnly: 'Esta página muestra solo información verificada.', close: 'Cerrar' },
+  home: { subtitle: 'Agua · Ciencia · Innovación', role: 'Doctorando · Investigador · Fundador', quickContact: 'Contacto rápido', downloadCv: 'Descargar CV' },
+  common: { home: 'Inicio', back: 'Volver al inicio', menu: 'Navegación', language: 'Idioma', viewDetails: 'Explorar', verifiedFactsOnly: 'Esta página muestra solo información verificada.', close: 'Cerrar' },
   sectionMeta: {
-    about: { kicker: '01 / Centro de gravedad', title: 'Un investigador entre sistemas', summary: 'Yihao conecta el agua potable, la ingeniería ambiental, el emprendimiento y el intercambio internacional.' },
-    research: { kicker: '02 / Preguntas en movimiento', title: 'Investigación para sistemas de agua seguros', summary: 'Seis líneas conectadas, desde el tratamiento hasta las redes y los entornos emergentes.' },
-    publications: { kicker: '03 / Archivo de evidencia', title: 'Publicaciones', summary: 'Un registro académico estructurado para trabajos verificados.' },
-    ventures: { kicker: '04 / De la idea a la acción', title: 'Proyectos ambientales', summary: 'Iniciativas que convierten la ciencia del agua y lo digital en soluciones prácticas.' },
-    honors: { kicker: '05 / Señales de reconocimiento', title: 'Distinciones en órbita', summary: 'Una constelación de reconocimientos académicos y de innovación.' },
-    global: { kicker: '06 / Más allá de las fronteras', title: 'Intercambio internacional', summary: 'Diálogo regional, aprendizaje internacional y colaboración futura.' },
-    life: { kicker: '07 / Fuera del laboratorio', title: 'Vida y perspectiva', summary: 'Una mirada más tranquila al contexto de la investigación, la ingeniería y el emprendimiento.' },
-    contact: { kicker: '08 / Canal abierto', title: 'Iniciar una conversación', summary: 'Para intercambio académico, tecnología ambiental y conversación sobre proyectos.' },
+    about: { kicker: '01 / Perfil', title: 'Un investigador entre sistemas', summary: 'Yihao conecta el agua potable, la ingeniería ambiental, el emprendimiento y el intercambio internacional.' },
+    research: { kicker: '02 / Líneas de investigación', title: 'Investigación para sistemas de agua seguros', summary: 'Seis líneas conectadas, desde el tratamiento hasta las redes y los entornos emergentes.' },
+    publications: { kicker: '03 / Registro académico', title: 'Publicaciones', summary: 'Un registro académico estructurado para trabajos verificados.' },
+    ventures: { kicker: '04 / Proyectos', title: 'Proyectos ambientales', summary: 'Iniciativas que convierten la ciencia del agua y lo digital en soluciones prácticas.' },
+    honors: { kicker: '05 / Distinciones', title: 'Distinciones y reconocimientos', summary: 'Un registro conciso de reconocimientos académicos y de innovación confirmados.' },
+    global: { kicker: '06 / Intercambio internacional', title: 'Intercambio internacional', summary: 'Diálogo regional, aprendizaje internacional y colaboración.' },
+    life: { kicker: '07 / Más allá de la investigación', title: 'Vida y perspectiva', summary: 'Una mirada más tranquila al contexto de la investigación, la ingeniería y el emprendimiento.' },
+    contact: { kicker: '08 / Contacto', title: 'Contacto', summary: 'Para colaboración académica, intercambio científico, proyectos de tecnología ambiental y comunicación internacional.' },
   },
   about: [
     { title: 'Formación', body: 'Doctorando en la Facultad de Ciencias e Ingeniería Ambientales de la Universidad Tongji.' },
@@ -37,5 +37,5 @@ export default defineLocale({
   honors: { nationalScholarship: 'Beca Nacional de Doctorado 2025', beijingGraduate: 'Graduado Sobresaliente de Pekín 2024', masterThesis: 'Tesis de Máster Sobresaliente 2024', academicTalent: 'Top 10 «Talentos Académicos» 2025, Facultad de Ciencias e Ingeniería Ambientales, Universidad Tongji', marineForum: 'Gran Premio 2025, 8.º Foro Nacional de Posgrado sobre Medio Ambiente y Estudios Marinos', tongjiInnovation: 'Primer Premio 2025, 4.º Concurso Around-Tongji de Innovación, Emprendimiento y Creatividad', ecoCompetition: 'Primer Premio 2025, División Este y Sur de China, 20.º Concurso Nacional de Tecnología Respetuosa con el Medio Ambiente', innovationSilver: 'Premio de Plata 2025, Universidad Tongji, vía industrial del Concurso Internacional Chino de Innovación de Estudiantes Universitarios' },
   global: { regionalExchange: { title: 'Intercambio doctoral China–Japón–Corea', body: 'Diálogo regional sobre medio ambiente y sostenibilidad.' }, gist: { title: 'Intercambio en GIST, Corea', body: 'Intercambio académico internacional en GIST, Corea.' }, summerSchool: { title: 'Escuela internacional de verano', body: 'Aprendizaje internacional sobre medio ambiente y sostenibilidad.' }, collaboration: { title: 'Colaboración académica intercultural', body: 'Para colaboraciones documentadas entre disciplinas e instituciones.' }, future: { title: 'Direcciones futuras', body: 'Abierto al diálogo internacional sobre agua, ingeniería ambiental e innovación responsable.' } },
   life: { title: 'Fuera del laboratorio', body: 'Una mirada más tranquila al contexto de la investigación, la ingeniería y el emprendimiento.' },
-  contact: { title: 'Iniciar una conversación', body: 'Para intercambio académico, tecnología ambiental y conversación sobre proyectos.', unavailable: '', copy: 'Copiar contacto', save: 'Guardar contacto' },
+  contact: { copy: 'Copiar', copied: 'Copiado', save: 'Guardar contacto', fields: { academicEmail: 'Correo académico', companyEmail: 'Correo profesional', phone: 'Teléfono', wechat: 'WeChat', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: 'CV en inglés', cvChinese: 'CV en chino', institution: 'Institución', location: 'Ubicación' } },
 });

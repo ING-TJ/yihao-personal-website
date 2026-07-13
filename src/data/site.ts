@@ -73,14 +73,3 @@ export type HonorKey = (typeof HONORS)[number]['key'];
 
 export const GLOBAL_IDS = ['regionalExchange', 'gist', 'summerSchool', 'collaboration', 'future'] as const;
 export type GlobalId = (typeof GLOBAL_IDS)[number];
-
-export const CONTACT = {
-  email: '',
-  wechat: '',
-  instagram: '',
-  linkedin: '',
-  github: '',
-  orcid: '',
-  cvPath: '',
-  vcardPath: '/contact/yihao-bian.vcf',
-} as const;

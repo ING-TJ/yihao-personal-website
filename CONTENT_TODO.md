@@ -5,7 +5,7 @@ The current site deliberately avoids invented data. Yihao should provide or conf
 ## Highest priority
 
 - [ ] Authorized portrait at `public/assets/profile/yihao-portrait.webp`
-- [ ] Public email address
+- [ ] Verified public academic email address (highest-priority contact field; keep empty until publication is authorized)
 - [ ] Final Chinese and English CV, plus the approved downloadable PDF path
 - [ ] Complete publication list with author order, journal, year, status, DOI and URL
 - [ ] Approval of the English role and affiliation wording
@@ -35,6 +35,7 @@ The current site deliberately avoids invented data. Yihao should provide or conf
 
 - [ ] Interests, travel and cultural experiences Yihao wishes to publish
 - [ ] WeChat, Instagram, LinkedIn, GitHub and ORCID (only selected public channels)
+- [ ] Business email, ResearchGate profile, public location and preferred contact labels if applicable
 - [ ] Mobile phone only if intentionally public; it is hidden by default
 
 ## Launch readiness

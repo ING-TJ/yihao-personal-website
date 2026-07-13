@@ -2,19 +2,19 @@ import { defineLocale } from '../schema';
 
 export default defineLocale({
   code: 'ja', dir: 'ltr',
-  meta: { title: 'Yihao Bian｜水・科学・イノベーション', description: '飲料水安全を研究する博士課程学生であり、環境技術起業家でもあるYihao Bianのパーソナル・ユニバース。' },
+  meta: { title: 'Yihao Bian｜水・科学・イノベーション', description: '飲料水安全を研究する博士課程学生であり、環境技術起業家でもあるYihao Bianの個人ウェブサイト。' },
   nav: { about: 'プロフィール', research: '研究', publications: '論文', ventures: '事業', honors: '受賞', global: '国際交流', life: 'ライフ', contact: '連絡先' },
-  home: { subtitle: '水・科学・イノベーション', role: '博士課程 · 研究者 · 創業者', enter: 'Nexusへ入る', skip: '体験をスキップ', loading: '接続を調整中', quickContact: 'クイック連絡', downloadCv: 'CVをダウンロード', cvPending: 'CV準備中', reduceMotion: '動きを減らす', restoreMotion: '動きを戻す', twoD: '2D表示を使う', explore: 'ノードを選んでください', canvasLabel: '8つの知識ノードが中心を周回するインタラクティブな個人宇宙。', fallbackTitle: '個人宇宙を探索する' },
-  common: { home: 'Nexus', back: 'Nexusへ戻る', menu: 'ナビゲーション', language: '言語', viewDetails: '詳しく見る', contentPending: '確認済み情報を準備中', verifiedFactsOnly: 'このページには確認済みの情報のみを掲載しています。', close: '閉じる' },
+  home: { subtitle: '水・科学・イノベーション', role: '博士課程 · 研究者 · 創業者', quickContact: 'クイック連絡', downloadCv: 'CVをダウンロード' },
+  common: { home: 'ホーム', back: 'ホームに戻る', menu: 'ナビゲーション', language: '言語', viewDetails: '詳しく見る', verifiedFactsOnly: 'このページには確認済みの情報のみを掲載しています。', close: '閉じる' },
   sectionMeta: {
-    about: { kicker: '01 / 重力の中心', title: 'システムを横断する研究者', summary: '飲料水研究、環境工学、起業、国際交流をつなぎます。' },
-    research: { kicker: '02 / 動き続ける問い', title: 'より安全な水システムの研究', summary: '処理界面から配水ネットワーク、新たな環境課題まで、6つの研究方向が連結します。' },
-    publications: { kicker: '03 / エビデンス・アーカイブ', title: '論文・成果', summary: '確認済みの論文と研究成果を扱うデータ駆動型の記録です。' },
-    ventures: { kicker: '04 / 洞察から行動へ', title: '環境技術ベンチャー', summary: '水科学とデジタル思考を実践的な解決策へつなぐ取り組みです。' },
-    honors: { kicker: '05 / 評価のシグナル', title: '受賞の軌道', summary: '学術とイノベーションの受賞を星座のように配置します。' },
-    global: { kicker: '06 / 境界を越えて', title: '国際交流', summary: '環境と持続可能性をめぐる地域対話、国際学習、将来の協働です。' },
-    life: { kicker: '07 / 研究室の外側', title: '生活と視点', summary: '研究、工学、起業を取り巻く視点を静かに見つめます。' },
-    contact: { kicker: '08 / オープン・チャンネル', title: '対話を始める', summary: '学術交流、環境技術、プロジェクトについての対話に。' },
+    about: { kicker: '01 / プロフィール', title: 'システムを横断する研究者', summary: '飲料水研究、環境工学、起業、国際交流をつなぎます。' },
+    research: { kicker: '02 / 研究分野', title: 'より安全な水システムの研究', summary: '処理界面から配水ネットワーク、新たな環境課題まで、6つの研究方向が連結します。' },
+    publications: { kicker: '03 / 研究業績', title: '論文・成果', summary: '確認済みの論文と研究成果を扱う記録です。' },
+    ventures: { kicker: '04 / プロジェクト', title: '環境技術ベンチャー', summary: '水科学とデジタル思考を実践的な解決策へつなぐ取り組みです。' },
+    honors: { kicker: '05 / 受賞', title: '受賞と評価', summary: '確認済みの学術・イノベーション分野の受賞を簡潔に記録します。' },
+    global: { kicker: '06 / 国際交流', title: '国際交流', summary: '環境と持続可能性をめぐる地域対話、国際学習、協働です。' },
+    life: { kicker: '07 / 研究の外側', title: '生活と視点', summary: '研究、工学、起業を取り巻く視点を静かに見つめます。' },
+    contact: { kicker: '08 / 連絡先', title: '連絡先', summary: '学術協力、研究交流、環境技術プロジェクト、国際交流についてご連絡ください。' },
   },
   about: [
     { title: '教育', body: '同済大学環境科学与工程学院の博士課程学生。' },
@@ -37,5 +37,5 @@ export default defineLocale({
   honors: { nationalScholarship: '2025年 博士課程国家奨学金', beijingGraduate: '2024年 北京市優秀卒業生', masterThesis: '2024年 優秀修士学位論文', academicTalent: '2025年 同済大学環境科学与工程学院 十佳「学術達人」', marineForum: '2025年 第8回全国大学院生環境（海洋関連）フォーラム 特等賞', tongjiInnovation: '2025年 第4回環同済イノベーション・起業・創意コンテスト 一等賞', ecoCompetition: '2025年 第20回全国環境友好科学技術コンテスト華東・華南地区 一等賞', innovationSilver: '2025年 中国国際大学生イノベーション大会産業トラック 同済大学銀賞' },
   global: { regionalExchange: { title: '日中韓博士学生交流', body: '環境と持続可能な発展に関する地域対話です。' }, gist: { title: '韓国GISTでの交流', body: '韓国GISTでの国際学術交流です。' }, summerSchool: { title: '国際サマースクール', body: '環境と持続可能性をめぐる国際的な学びです。' }, collaboration: { title: '異文化間の学術協働', body: '分野、機関、文化的視点を結ぶ学術協働です。' }, future: { title: '今後の国際交流', body: '水安全、環境工学、責任あるイノベーションに関する対話に開かれています。' } },
   life: { title: '研究室の外側', body: '研究、工学、起業を取り巻く視点を静かに見つめます。' },
-  contact: { title: '対話を始める', body: '学術交流、環境技術、プロジェクトについての対話に。', unavailable: '', copy: '連絡先をコピー', save: '連絡先を保存' },
+  contact: { copy: 'コピー', copied: 'コピーしました', save: '連絡先を保存', fields: { academicEmail: '学術メール', companyEmail: '業務メール', phone: '電話', wechat: 'WeChat', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: '英語CV', cvChinese: '中国語CV', institution: '所属機関', location: '所在地' } },
 });

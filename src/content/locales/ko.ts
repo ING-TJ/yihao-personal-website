@@ -2,19 +2,19 @@ import { defineLocale } from '../schema';
 
 export default defineLocale({
   code: 'ko', dir: 'ltr',
-  meta: { title: 'Yihao Bian — 물 · 과학 · 혁신', description: '음용수 안전 박사과정 연구자이자 환경 기술 창업가 Yihao Bian의 개인 우주입니다.' },
+  meta: { title: 'Yihao Bian — 물 · 과학 · 혁신', description: '음용수 안전 박사과정 연구자이자 환경 기술 창업가 Yihao Bian의 개인 웹사이트입니다.' },
   nav: { about: '소개', research: '연구', publications: '논문', ventures: '벤처', honors: '수상', global: '국제 교류', life: '삶', contact: '연락처' },
-  home: { subtitle: '물 · 과학 · 혁신', role: '박사과정 · 연구자 · 창업가', enter: 'Nexus 입장', skip: '경험 건너뛰기', loading: '연결을 조정하는 중', quickContact: '빠른 연락', downloadCv: 'CV 다운로드', cvPending: 'CV 준비 중', reduceMotion: '모션 줄이기', restoreMotion: '모션 복원', twoD: '2D 보기 사용', explore: '노드를 선택하세요', canvasLabel: '8개의 지식 노드가 중심을 도는 인터랙티브 개인 우주.', fallbackTitle: '개인 우주 탐색' },
-  common: { home: 'Nexus', back: 'Nexus로 돌아가기', menu: '내비게이션', language: '언어', viewDetails: '자세히 보기', contentPending: '검증된 세부 정보 준비 중', verifiedFactsOnly: '이 페이지는 확인된 정보만 표시합니다.', close: '닫기' },
+  home: { subtitle: '물 · 과학 · 혁신', role: '박사과정 · 연구자 · 창업가', quickContact: '빠른 연락', downloadCv: 'CV 다운로드' },
+  common: { home: '홈', back: '홈으로 돌아가기', menu: '내비게이션', language: '언어', viewDetails: '자세히 보기', verifiedFactsOnly: '이 페이지는 확인된 정보만 표시합니다.', close: '닫기' },
   sectionMeta: {
-    about: { kicker: '01 / 중력의 중심', title: '시스템을 가로지르는 연구자', summary: '음용수 연구, 환경공학, 창업, 국제 교류를 연결합니다.' },
-    research: { kicker: '02 / 움직이는 질문', title: '더 안전한 물 시스템을 위한 연구', summary: '처리 경계면에서 배수망과 새로운 환경 문제까지 이어지는 여섯 방향입니다.' },
-    publications: { kicker: '03 / 근거 아카이브', title: '논문 및 성과', summary: '검증된 학술 성과를 위한 데이터 기반 기록입니다.' },
-    ventures: { kicker: '04 / 통찰에서 행동으로', title: '환경 기술 벤처', summary: '물 과학과 디지털 사고를 실용적인 해결책으로 전환하는 시도입니다.' },
-    honors: { kicker: '05 / 인정의 신호', title: '수상의 궤도', summary: '학술 및 혁신 수상을 별자리처럼 배치합니다.' },
-    global: { kicker: '06 / 경계를 넘어', title: '국제 교류', summary: '환경과 지속가능성을 둘러싼 지역 대화, 국제 학습과 미래 협력입니다.' },
-    life: { kicker: '07 / 연구실 밖', title: '삶과 관점', summary: '연구, 공학, 창업을 둘러싼 관점을 차분히 바라봅니다.' },
-    contact: { kicker: '08 / 열린 채널', title: '대화 시작하기', summary: '학술 교류, 환경 기술, 프로젝트 대화를 위해.' },
+    about: { kicker: '01 / 프로필', title: '시스템을 가로지르는 연구자', summary: '음용수 연구, 환경공학, 창업, 국제 교류를 연결합니다.' },
+    research: { kicker: '02 / 연구 분야', title: '더 안전한 물 시스템을 위한 연구', summary: '처리 경계면에서 배수망과 새로운 환경 문제까지 이어지는 여섯 방향입니다.' },
+    publications: { kicker: '03 / 학술 기록', title: '논문 및 성과', summary: '검증된 학술 성과를 위한 구조화된 기록입니다.' },
+    ventures: { kicker: '04 / 프로젝트', title: '환경 기술 벤처', summary: '물 과학과 디지털 사고를 실용적인 해결책으로 전환하는 시도입니다.' },
+    honors: { kicker: '05 / 수상', title: '수상 및 인정', summary: '확인된 학술 및 혁신 분야의 수상을 간결하게 기록합니다.' },
+    global: { kicker: '06 / 국제 교류', title: '국제 교류', summary: '환경과 지속가능성을 둘러싼 지역 대화, 국제 학습과 협력입니다.' },
+    life: { kicker: '07 / 연구 밖', title: '삶과 관점', summary: '연구, 공학, 창업을 둘러싼 관점을 차분히 바라봅니다.' },
+    contact: { kicker: '08 / 연락처', title: '연락처', summary: '학술 협력, 연구 교류, 환경 기술 프로젝트 및 국제 교류를 위해 연락해 주세요.' },
   },
   about: [
     { title: '교육', body: '퉁지대학교 환경과학공학대학 박사과정 연구자입니다.' },
@@ -37,5 +37,5 @@ export default defineLocale({
   honors: { nationalScholarship: '2025 박사과정 국가장학금', beijingGraduate: '2024 베이징시 우수 졸업생', masterThesis: '2024 우수 석사학위 논문', academicTalent: '2025 퉁지대학교 환경과학공학대학 10대 「학술 인재」', marineForum: '2025 제8회 전국 대학원생 환경(해양) 포럼 특등상', tongjiInnovation: '2025 제4회 환퉁지 혁신·창업·창의 대회 1등상', ecoCompetition: '2025 제20회 전국 환경친화 과학기술대회 화동·화남 지역 1등상', innovationSilver: '2025 중국 국제 대학생 혁신대회 산업 트랙 퉁지대학교 은상' },
   global: { regionalExchange: { title: '한중일 박사과정 교류', body: '환경과 지속가능발전에 관한 지역 대화입니다.' }, gist: { title: '한국 GIST 교류 경험', body: '한국 GIST에서의 국제 학술 교류입니다.' }, summerSchool: { title: '국제 여름학교', body: '환경과 지속가능성에 관한 국제 학습입니다.' }, collaboration: { title: '문화 간 학술 협력', body: '학문, 기관, 문화적 관점을 잇는 학술 협력입니다.' }, future: { title: '향후 국제 교류', body: '물 안전, 환경공학, 책임 있는 혁신에 관한 국제 대화에 열려 있습니다.' } },
   life: { title: '연구실 밖', body: '연구, 공학, 창업을 둘러싼 관점을 차분히 바라봅니다.' },
-  contact: { title: '대화 시작하기', body: '학술 교류, 환경 기술, 프로젝트 대화를 위해.', unavailable: '', copy: '연락처 복사', save: '연락처 저장' },
+  contact: { copy: '복사', copied: '복사됨', save: '연락처 저장', fields: { academicEmail: '학술 이메일', companyEmail: '업무 이메일', phone: '전화', wechat: 'WeChat', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: '영문 CV', cvChinese: '중문 CV', institution: '소속 기관', location: '위치' } },
 });

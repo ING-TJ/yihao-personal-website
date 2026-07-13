@@ -3,21 +3,23 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { LocaleContent } from '@/content/schema';
 import { FEATURED_HONORS, FEATURED_RESEARCH, FEATURED_VENTURES } from '@/data/home';
-import { HONORS, SITE, type Lang } from '@/data/site';
+import { ENABLED_LOCALES, HONORS, SITE, type Lang } from '@/data/site';
 import { publications } from '@/data/publications';
-import { contact } from '@/data/contact';
+import { cvForLanguage } from '@/data/contact';
 import { profile } from '@/data/profile';
 import { assetFor, detailRouteFor, routeFor } from '@/utils/routes';
 
 interface Props { lang: Lang; locale: LocaleContent }
 const { lang, locale } = Astro.props;
 const portraitExists = existsSync(join(process.cwd(), 'public/assets/profile/yihao-portrait.webp'));
-const normalizedCvPath = contact.cvPath.replace(/^\//, '');
+const cvPath = cvForLanguage(lang);
+const normalizedCvPath = cvPath.replace(/^\//, '');
 const cvExists = Boolean(normalizedCvPath) && existsSync(join(process.cwd(), 'public', normalizedCvPath));
 const chineseHome = lang === 'zh-CN';
 const primaryName = chineseHome ? SITE.nameZh : SITE.name;
 const secondaryName = chineseHome ? SITE.name : SITE.nameZh;
 const portraitLabel = chineseHome ? `${SITE.nameZh}人物肖像` : `${SITE.name} editorial portrait`;
+const detailPagesEnabled = ENABLED_LOCALES.some((code) => code === lang);
 const v2 = locale.homeV2 ?? {
   eyebrow: locale.home.subtitle,
   roles: [locale.home.role],
@@ -49,7 +51,7 @@ const v2 = locale.homeV2 ?? {
       <div class="hero-actions">
         <a class="button" href={routeFor(lang, 'research')}>{locale.nav.research}</a>
         <a class="button-outline" href={routeFor(lang, 'ventures')}>{locale.nav.ventures}</a>
-        {cvExists && <a class="button-outline" href={assetFor(contact.cvPath)} download>{locale.home.downloadCv}</a>}
+        {cvExists && <a class="button-outline" href={assetFor(cvPath)} download>{locale.home.downloadCv}</a>}
         <a class="hero-contact-link" href={routeFor(lang, 'contact')}>{locale.nav.contact}<span aria-hidden="true">↗</span></a>
       </div>
     </div>
@@ -87,7 +89,7 @@ const v2 = locale.homeV2 ?? {
     <div class="featured-research-list">
       {FEATURED_RESEARCH.map((id, index) => (
         <article class:list={['featured-research-item', { 'is-large': index === 0 }]}>
-          <a href={detailRouteFor(lang, 'research', id)}>
+          <a href={detailPagesEnabled ? detailRouteFor(lang, 'research', id) : routeFor(lang, 'research')}>
             <div class="research-visual" aria-hidden="true">
               <span>{String(index + 1).padStart(2, '0')}</span>
               <div class={`research-pattern pattern-${index + 1}`}></div>
@@ -112,7 +114,7 @@ const v2 = locale.homeV2 ?? {
     <div class="featured-ventures">
       {FEATURED_VENTURES.map((id, index) => (
         <article>
-          <a href={detailRouteFor(lang, 'ventures', id)}>
+          <a href={detailPagesEnabled ? detailRouteFor(lang, 'ventures', id) : routeFor(lang, 'ventures')}>
             <div class="venture-index"><span>V / 0{index + 1}</span><span aria-hidden="true">↗</span></div>
             <h3>{locale.ventures[id].title}</h3>
             <p>{locale.ventures[id].descriptor}</p>

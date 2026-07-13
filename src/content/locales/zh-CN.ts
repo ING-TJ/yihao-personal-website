@@ -2,9 +2,9 @@ import { defineLocale } from '../schema';
 
 export default defineLocale({
   code: 'zh-CN', dir: 'ltr',
-  meta: { title: '卞逸豪｜水 · 科研 · 创新', description: '卞逸豪的个人宇宙：饮用水安全博士研究者、环境科技创业者与全球交流者。' },
+  meta: { title: '卞逸豪｜水 · 科研 · 创新', description: '卞逸豪个人网站：饮用水安全博士研究者、环境科技创业者与国际交流参与者。' },
   nav: { about: '关于我', research: '科研方向', publications: '论文成果', ventures: '创新创业', honors: '荣誉奖项', global: '国际交流', life: '生活兴趣', contact: '联系方式' },
-  home: { subtitle: '水 · 科研 · 创新', role: '博士研究生 · 研究者 · 创业者', enter: '进入个人宇宙', skip: '跳过体验', loading: '正在校准连接', quickContact: '快速联系', downloadCv: '下载简历', cvPending: '简历待补充', reduceMotion: '减少动态效果', restoreMotion: '恢复动态效果', twoD: '使用二维模式', explore: '选择节点开始探索', canvasLabel: '一个由八个知识节点围绕中心运行的交互式个人宇宙。', fallbackTitle: '探索个人宇宙' },
+  home: { subtitle: '水 · 科研 · 创新', role: '博士研究生 · 研究者 · 创业者', quickContact: '快速联系', downloadCv: '下载简历' },
   homeV2: {
     eyebrow: '环境工程 · 饮用水安全',
     roles: ['环境工程博士研究生', '饮用水安全研究者', '晶水济创始人'],
@@ -25,16 +25,16 @@ export default defineLocale({
     viewAll: '查看全部',
     roleLabel: '角色',
   },
-  common: { home: '中心', back: '返回个人宇宙', menu: '导航', language: '语言', viewDetails: '深入了解', contentPending: '详细信息待本人核实', verifiedFactsOnly: '本页仅展示已确认的信息，不使用虚构内容。', close: '关闭' },
+  common: { home: '首页', back: '返回首页', menu: '导航', language: '语言', viewDetails: '深入了解', verifiedFactsOnly: '本页仅展示已确认的信息，不使用虚构内容。', close: '关闭' },
   sectionMeta: {
-    about: { kicker: '01 / 引力中心', title: '跨越系统边界的研究者', summary: '卞逸豪连接饮用水研究、环境工程、创新创业与国际交流。' },
-    research: { kicker: '02 / 流动的问题', title: '面向更安全水系统的研究', summary: '六个相互关联的方向，从处理界面、供水管网延伸至新兴环境问题。' },
-    publications: { kicker: '03 / 证据档案', title: '论文成果', summary: '为已发表论文、审稿中成果和在研工作准备的数据驱动学术档案。' },
-    ventures: { kicker: '04 / 从洞见到行动', title: '环境科技创新创业', summary: '将水科学与数字思维转化为可实践、可协作的解决方案。' },
-    honors: { kicker: '05 / 被看见的信号', title: '荣誉星环', summary: '精选学术与创新荣誉，以环绕星群呈现，而不是传统时间线。' },
-    global: { kicker: '06 / 跨越边界', title: '国际交流', summary: '围绕环境与可持续发展展开的区域对话、国际学习与未来合作。' },
-    life: { kicker: '07 / 实验室之外', title: '生活与视野', summary: '从科研、工程与创新创业之外，保留观察世界的另一层视角。' },
-    contact: { kicker: '08 / 开放频道', title: '开始一次交流', summary: '欢迎围绕学术交流、环境科技合作与未来项目展开沟通。' },
+    about: { kicker: '01 / 个人简介', title: '跨越系统边界的研究者', summary: '卞逸豪连接饮用水研究、环境工程、创新创业与国际交流。' },
+    research: { kicker: '02 / 研究方向', title: '面向更安全水系统的研究', summary: '六个相互关联的方向，从处理界面、供水管网延伸至新兴环境问题。' },
+    publications: { kicker: '03 / 学术记录', title: '论文成果', summary: '用于呈现已核实论文与研究成果的结构化学术记录。' },
+    ventures: { kicker: '04 / 实践项目', title: '环境科技创新创业', summary: '将水科学与数字思维转化为可实践、可协作的解决方案。' },
+    honors: { kicker: '05 / 荣誉认可', title: '荣誉与认可', summary: '以清晰的信息记录呈现已确认的学术与创新荣誉。' },
+    global: { kicker: '06 / 国际交流', title: '国际交流', summary: '围绕环境与可持续发展展开的区域对话、国际学习与合作。' },
+    life: { kicker: '07 / 科研之外', title: '生活与视野', summary: '从科研、工程与创新创业之外，保留观察世界的另一层视角。' },
+    contact: { kicker: '08 / 联系方式', title: '联系方式', summary: '欢迎就学术合作、科研交流、环境科技项目与国际交流联系我。' },
   },
   about: [
     { title: '教育经历', body: '同济大学环境科学与工程学院博士研究生。' },
@@ -69,5 +69,8 @@ export default defineLocale({
     future: { title: '未来国际交流方向', body: '期待围绕饮用水安全、环境工程与负责任创新开展国际交流。' },
   },
   life: { title: '实验室之外', body: '从科研、工程与创新创业之外，保留观察世界的另一层视角。' },
-  contact: { title: '开始一次交流', body: '欢迎围绕学术交流、环境科技合作与未来项目展开沟通。', unavailable: '', copy: '复制联系方式', save: '保存联系人' },
+  contact: {
+    copy: '复制', copied: '已复制', save: '保存联系人',
+    fields: { academicEmail: '学术邮箱', companyEmail: '商务邮箱', phone: '电话', wechat: '微信', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: '英文简历', cvChinese: '中文简历', institution: '所在机构', location: '所在地' },
+  },
 });

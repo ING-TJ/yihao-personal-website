@@ -2,19 +2,19 @@ import { defineLocale } from '../schema';
 
 export default defineLocale({
   code: 'fr', dir: 'ltr',
-  meta: { title: 'Yihao Bian — Eau · Science · Innovation', description: 'L’univers personnel de Yihao Bian, doctorant en sécurité de l’eau potable et entrepreneur en technologies environnementales.' },
+  meta: { title: 'Yihao Bian — Eau · Science · Innovation', description: 'Le site personnel de Yihao Bian, doctorant en sécurité de l’eau potable et entrepreneur en technologies environnementales.' },
   nav: { about: 'À propos', research: 'Recherche', publications: 'Publications', ventures: 'Projets', honors: 'Distinctions', global: 'International', life: 'Vie', contact: 'Contact' },
-  home: { subtitle: 'Eau · Science · Innovation', role: 'Doctorant · Chercheur · Fondateur', enter: 'Entrer dans le nexus', skip: 'Passer l’expérience', loading: 'Calibration du nexus', quickContact: 'Contact rapide', downloadCv: 'Télécharger le CV', cvPending: 'CV à venir', reduceMotion: 'Réduire les animations', restoreMotion: 'Rétablir les animations', twoD: 'Utiliser la vue 2D', explore: 'Choisissez un nœud', canvasLabel: 'Un univers personnel interactif composé de huit nœuds en orbite.', fallbackTitle: 'Explorer l’univers personnel' },
-  common: { home: 'Nexus', back: 'Retour au nexus', menu: 'Navigation', language: 'Langue', viewDetails: 'Explorer', contentPending: 'Détails vérifiés à venir', verifiedFactsOnly: 'Cette page présente uniquement des informations vérifiées.', close: 'Fermer' },
+  home: { subtitle: 'Eau · Science · Innovation', role: 'Doctorant · Chercheur · Fondateur', quickContact: 'Contact rapide', downloadCv: 'Télécharger le CV' },
+  common: { home: 'Accueil', back: 'Retour à l’accueil', menu: 'Navigation', language: 'Langue', viewDetails: 'Explorer', verifiedFactsOnly: 'Cette page présente uniquement des informations vérifiées.', close: 'Fermer' },
   sectionMeta: {
-    about: { kicker: '01 / Centre de gravité', title: 'Un chercheur à travers les systèmes', summary: 'Yihao relie l’eau potable, l’ingénierie environnementale, l’entrepreneuriat et les échanges internationaux.' },
-    research: { kicker: '02 / Questions en mouvement', title: 'Recherche pour des réseaux d’eau plus sûrs', summary: 'Six axes liés, des interfaces de traitement aux réseaux et aux environnements émergents.' },
-    publications: { kicker: '03 / Archives de preuves', title: 'Publications', summary: 'Un dossier scientifique structuré pour les travaux vérifiés.' },
-    ventures: { kicker: '04 / De l’idée à l’action', title: 'Projets environnementaux', summary: 'Des initiatives qui transforment la science de l’eau et le numérique en solutions concrètes.' },
-    honors: { kicker: '05 / Signaux de reconnaissance', title: 'Distinctions en orbite', summary: 'Une constellation de reconnaissances académiques et d’innovation.' },
-    global: { kicker: '06 / Au-delà des frontières', title: 'Échanges internationaux', summary: 'Dialogue régional, études internationales et collaborations futures.' },
-    life: { kicker: '07 / Hors du laboratoire', title: 'Vie et regard', summary: 'Un regard plus calme sur les perspectives qui entourent la recherche, l’ingénierie et l’entrepreneuriat.' },
-    contact: { kicker: '08 / Canal ouvert', title: 'Engager la conversation', summary: 'Pour les échanges scientifiques, les technologies environnementales et les projets.' },
+    about: { kicker: '01 / Profil', title: 'Un chercheur à travers les systèmes', summary: 'Yihao relie l’eau potable, l’ingénierie environnementale, l’entrepreneuriat et les échanges internationaux.' },
+    research: { kicker: '02 / Axes de recherche', title: 'Recherche pour des réseaux d’eau plus sûrs', summary: 'Six axes liés, des interfaces de traitement aux réseaux et aux environnements émergents.' },
+    publications: { kicker: '03 / Dossier scientifique', title: 'Publications', summary: 'Un dossier scientifique structuré pour les travaux vérifiés.' },
+    ventures: { kicker: '04 / Projets', title: 'Projets environnementaux', summary: 'Des initiatives qui transforment la science de l’eau et le numérique en solutions concrètes.' },
+    honors: { kicker: '05 / Distinctions', title: 'Distinctions et reconnaissance', summary: 'Un relevé concis des distinctions académiques et d’innovation confirmées.' },
+    global: { kicker: '06 / Échanges internationaux', title: 'Échanges internationaux', summary: 'Dialogue régional, études internationales et collaborations.' },
+    life: { kicker: '07 / Au-delà de la recherche', title: 'Vie et regard', summary: 'Un regard plus calme sur les perspectives qui entourent la recherche, l’ingénierie et l’entrepreneuriat.' },
+    contact: { kicker: '08 / Contact', title: 'Contact', summary: 'Pour la collaboration académique, les échanges scientifiques, les projets de technologie environnementale et la communication internationale.' },
   },
   about: [
     { title: 'Formation', body: 'Doctorant au Collège des sciences et de l’ingénierie de l’environnement de l’Université Tongji.' },
@@ -37,5 +37,5 @@ export default defineLocale({
   honors: { nationalScholarship: 'Bourse nationale de doctorat 2025', beijingGraduate: 'Diplômé d’excellence de Pékin 2024', masterThesis: 'Mémoire de master d’excellence 2024', academicTalent: 'Top 10 des « talents académiques » 2025, Collège des sciences et de l’ingénierie de l’environnement, Université Tongji', marineForum: 'Grand Prix 2025, 8e Forum national des doctorants sur l’environnement et la mer', tongjiInnovation: 'Premier Prix 2025, 4e concours d’innovation, d’entrepreneuriat et de créativité Autour de Tongji', ecoCompetition: 'Premier Prix 2025, division Est et Sud de la Chine, 20e concours national des technologies respectueuses de l’environnement', innovationSilver: 'Prix d’argent 2025, filière industrielle de l’Université Tongji, Concours international chinois d’innovation étudiante' },
   global: { regionalExchange: { title: 'Échange doctoral Chine–Japon–Corée', body: 'Dialogue régional sur l’environnement et le développement durable.' }, gist: { title: 'Échange au GIST, Corée', body: 'Échange académique international au GIST en Corée.' }, summerSchool: { title: 'École d’été internationale', body: 'Apprentissage international autour de l’environnement et de la durabilité.' }, collaboration: { title: 'Collaboration académique interculturelle', body: 'Pour les collaborations documentées entre disciplines et institutions.' }, future: { title: 'Orientations futures', body: 'Ouvert aux échanges sur l’eau, l’ingénierie environnementale et l’innovation responsable.' } },
   life: { title: 'Hors du laboratoire', body: 'Un regard plus calme sur les perspectives qui entourent la recherche, l’ingénierie et l’entrepreneuriat.' },
-  contact: { title: 'Engager la conversation', body: 'Pour les échanges scientifiques, les technologies environnementales et les projets.', unavailable: '', copy: 'Copier le contact', save: 'Enregistrer le contact' },
+  contact: { copy: 'Copier', copied: 'Copié', save: 'Enregistrer le contact', fields: { academicEmail: 'Adresse académique', companyEmail: 'Adresse professionnelle', phone: 'Téléphone', wechat: 'WeChat', instagram: 'Instagram', linkedin: 'LinkedIn', github: 'GitHub', orcid: 'ORCID', researchGate: 'ResearchGate', cvEnglish: 'CV anglais', cvChinese: 'CV chinois', institution: 'Institution', location: 'Localisation' } },
 });
