@@ -1,5 +1,5 @@
 {
-  "name": "yihao-nexus",
+  "name": "yihao-personal-website",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -15,23 +15,14 @@
     "generate:vcard": "node scripts/generate-vcard.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "6.0.1",
     "@astrojs/sitemap": "3.7.3",
-    "@react-three/drei": "10.7.7",
-    "@react-three/fiber": "9.6.1",
     "astro": "7.0.7",
-    "qrcode": "1.5.4",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "three": "0.185.1"
+    "qrcode": "1.5.4"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
     "@types/node": "24.10.1",
     "@types/qrcode": "1.5.6",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "@types/three": "0.183.1",
     "eslint": "10.7.0",
     "eslint-plugin-astro": "3.0.0",
     "typescript-eslint": "8.63.0",

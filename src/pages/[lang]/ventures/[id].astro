@@ -1,0 +1,62 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLocale } from '@/content/locales';
+import { getDetailLabels, getVentureTitleSegments } from '@/content/detail';
+import { ENABLED_LOCALES, VENTURE_IDS, type Lang, type VentureId } from '@/data/site';
+import { ventures } from '@/data/ventures';
+import { routeFor } from '@/utils/routes';
+import '@/styles/detail.css';
+
+export function getStaticPaths() {
+  return ENABLED_LOCALES.flatMap((lang) => VENTURE_IDS.map((id) => ({ params: { lang, id } })));
+}
+
+const lang = Astro.params.lang as Lang;
+const id = Astro.params.id as VentureId;
+const locale = getLocale(lang);
+const labels = getDetailLabels(lang);
+const item = locale.ventures[id];
+const titleSegments = getVentureTitleSegments(lang, id, item.title);
+const record = ventures.find((venture) => venture.id === id);
+const confirmedRole = id === 'jingshuiji' ? (locale.homeV2?.roles[2] ?? locale.home.role) : record?.role;
+const summary = [
+  { label: labels.ventures.role, value: confirmedRole },
+  { label: labels.ventures.stage, value: record?.progress },
+].filter((entry): entry is { label: string; value: string } => Boolean(entry.value));
+const details = [
+  { label: labels.ventures.problem, value: record?.problem },
+  { label: labels.ventures.solution, value: record?.solution },
+  { label: labels.ventures.impact, value: record?.impact },
+].filter((entry): entry is { label: string; value: string } => Boolean(entry.value));
+const gallery = record?.gallery ?? [];
+---
+<BaseLayout lang={lang} section="ventures" path={`ventures/${id}`} title={item.title} description={item.descriptor}>
+  <article class="detail-page venture-detail">
+    <header class="detail-hero" data-reveal>
+      <div class="detail-meta"><p class="eyebrow">{labels.ventures.eyebrow}</p><span>V / {String(VENTURE_IDS.indexOf(id) + 1).padStart(2, '0')}</span></div>
+      <div class="detail-title">
+        <h1>{titleSegments.map((segment) => <span>{segment}</span>)}</h1>
+        {summary.length > 0 && <dl class="venture-summary">{summary.map((entry) => <div><dt>{entry.label}</dt><dd>{entry.value}</dd></div>)}</dl>}
+      </div>
+    </header>
+
+    <section class="venture-overview" data-reveal>
+      <p class="detail-label">01 / {labels.ventures.overview}</p>
+      <div><h2>{labels.ventures.overview}</h2><p>{item.descriptor}</p></div>
+    </section>
+
+    {details.length > 0 && <div class="venture-detail-fields" data-reveal>{details.map((entry, index) => <section><span>{String(index + 2).padStart(2, '0')}</span><h2>{entry.label}</h2><p>{entry.value}</p></section>)}</div>}
+
+    {gallery.length > 0 && <section class="venture-gallery" data-reveal>
+      <div><p class="detail-label">07 / {labels.ventures.gallery}</p><h2>{labels.ventures.gallery}</h2></div>
+      <div class="gallery-grid">{gallery.map((image, index) => <img src={image} alt="" loading="lazy" width="800" height="600" data-index={String(index + 1).padStart(2, '0')} />)}</div>
+    </section>}
+
+    <section class="venture-collaboration" data-reveal>
+      <p class="detail-label">02 / {labels.ventures.collaboration}</p>
+      <div><h2>{labels.ventures.collaboration}</h2><p>{locale.sectionMeta.contact.summary}</p><a class="button" href={routeFor(lang, 'contact')}>{locale.home.quickContact}</a></div>
+    </section>
+
+    <footer class="detail-back"><a class="text-link" href={routeFor(lang, 'ventures')}>← {labels.ventures.back}</a></footer>
+  </article>
+</BaseLayout>

@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 const site = process.env.PUBLIC_SITE_URL || 'https://yihao.shjingshuiji.cn';
@@ -10,7 +9,7 @@ export default defineConfig({
   base,
   output: 'static',
   trailingSlash: 'always',
-  integrations: [react(), sitemap()],
+  integrations: [sitemap()],
   vite: {
     build: {
       cssMinify: 'lightningcss',

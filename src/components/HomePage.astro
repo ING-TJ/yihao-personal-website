@@ -1,0 +1,171 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import type { LocaleContent } from '@/content/schema';
+import { FEATURED_HONORS, FEATURED_RESEARCH, FEATURED_VENTURES } from '@/data/home';
+import { HONORS, SITE, type Lang } from '@/data/site';
+import { publications } from '@/data/publications';
+import { contact } from '@/data/contact';
+import { profile } from '@/data/profile';
+import { assetFor, detailRouteFor, routeFor } from '@/utils/routes';
+
+interface Props { lang: Lang; locale: LocaleContent }
+const { lang, locale } = Astro.props;
+const portraitExists = existsSync(join(process.cwd(), 'public/assets/profile/yihao-portrait.webp'));
+const normalizedCvPath = contact.cvPath.replace(/^\//, '');
+const cvExists = Boolean(normalizedCvPath) && existsSync(join(process.cwd(), 'public', normalizedCvPath));
+const chineseHome = lang === 'zh-CN';
+const primaryName = chineseHome ? SITE.nameZh : SITE.name;
+const secondaryName = chineseHome ? SITE.name : SITE.nameZh;
+const portraitLabel = chineseHome ? `${SITE.nameZh}人物肖像` : `${SITE.name} editorial portrait`;
+const v2 = locale.homeV2 ?? {
+  eyebrow: locale.home.subtitle,
+  roles: [locale.home.role],
+  statement: locale.sectionMeta.about.summary,
+  introLabel: locale.sectionMeta.about.kicker,
+  introTitle: locale.sectionMeta.about.title,
+  introBody: locale.about.map((item) => item.body).join(' '),
+  selectedResearch: locale.sectionMeta.research.title,
+  selectedVentures: locale.sectionMeta.ventures.title,
+  selectedPublications: locale.sectionMeta.publications.title,
+  selectedHonors: locale.sectionMeta.honors.title,
+  globalLabel: locale.sectionMeta.global.kicker,
+  globalTitle: locale.sectionMeta.global.title,
+  globalBody: locale.sectionMeta.global.summary,
+  contactLabel: locale.sectionMeta.contact.kicker,
+  contactTitle: locale.sectionMeta.contact.title,
+  contactBody: locale.sectionMeta.contact.summary,
+  viewAll: locale.common.viewDetails,
+  roleLabel: locale.ventureFields.role,
+};
+---
+<div class="home-v2">
+  <section class="hero-v2">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow">{v2.eyebrow}</p>
+      <h1 class:list={['hero-name', { 'is-chinese': chineseHome }]}><span>{primaryName}</span><small>{secondaryName}</small></h1>
+      <ul class="hero-roles">{v2.roles.map((role) => <li>{role}</li>)}</ul>
+      <p class="hero-statement">{v2.statement}</p>
+      <div class="hero-actions">
+        <a class="button" href={routeFor(lang, 'research')}>{locale.nav.research}</a>
+        <a class="button-outline" href={routeFor(lang, 'ventures')}>{locale.nav.ventures}</a>
+        {cvExists && <a class="button-outline" href={assetFor(contact.cvPath)} download>{locale.home.downloadCv}</a>}
+        <a class="hero-contact-link" href={routeFor(lang, 'contact')}>{locale.nav.contact}<span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <div class="portrait-stage" data-reveal>
+      {portraitExists ? (
+        <img src={assetFor(profile.portrait)} alt={primaryName} width="920" height="1120" style={`--portrait-position: ${profile.portraitObjectPosition};`} />
+      ) : (
+        <div class="portrait-placeholder" role="img" aria-label={portraitLabel}>
+          <span class="portrait-code">YB / 01</span>
+          <div class="portrait-mark" aria-hidden="true"><strong>YB</strong><span></span><span></span></div>
+        </div>
+      )}
+      <p class="portrait-caption"><span>01</span>{SITE.affiliation.name}</p>
+    </div>
+  </section>
+
+  <section class="profile-intro section-v2" data-reveal>
+    <div class="section-rail"><span class="section-number">01</span><p class="eyebrow">{v2.introLabel}</p></div>
+    <div class="intro-copy">
+      <h2>{v2.introTitle}</h2>
+      <p>{v2.introBody}</p>
+      <a class="text-link" href={routeFor(lang, 'about')}>{locale.nav.about}</a>
+    </div>
+    <div class="practice-lines" aria-label={v2.roles.join(', ')}>
+      {v2.roles.map((role, index) => <div><span>0{index + 1}</span><p>{role}</p></div>)}
+    </div>
+  </section>
+
+  <section class="research-feature section-v2" data-reveal>
+    <header class="section-heading">
+      <div><span class="section-number">02</span><p class="eyebrow">{v2.selectedResearch}</p></div>
+      <a class="text-link" href={routeFor(lang, 'research')}>{v2.viewAll}</a>
+    </header>
+    <div class="featured-research-list">
+      {FEATURED_RESEARCH.map((id, index) => (
+        <article class:list={['featured-research-item', { 'is-large': index === 0 }]}>
+          <a href={detailRouteFor(lang, 'research', id)}>
+            <div class="research-visual" aria-hidden="true">
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <div class={`research-pattern pattern-${index + 1}`}></div>
+            </div>
+            <div class="research-copy">
+              <span>R / {String(index + 1).padStart(2, '0')}</span>
+              <h3>{locale.research[id].title}</h3>
+              <p>{locale.research[id].question}</p>
+              <small>{locale.common.viewDetails} ↗</small>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="venture-feature section-v2" data-reveal>
+    <header class="section-heading">
+      <div><span class="section-number">03</span><p class="eyebrow">{v2.selectedVentures}</p></div>
+      <a class="text-link" href={routeFor(lang, 'ventures')}>{v2.viewAll}</a>
+    </header>
+    <div class="featured-ventures">
+      {FEATURED_VENTURES.map((id, index) => (
+        <article>
+          <a href={detailRouteFor(lang, 'ventures', id)}>
+            <div class="venture-index"><span>V / 0{index + 1}</span><span aria-hidden="true">↗</span></div>
+            <h3>{locale.ventures[id].title}</h3>
+            <p>{locale.ventures[id].descriptor}</p>
+            {id === 'jingshuiji' && <dl><div><dt>{v2.roleLabel}</dt><dd>{v2.roles[2]}</dd></div></dl>}
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="publication-feature section-v2" data-reveal>
+    <div class="section-rail"><span class="section-number">04</span><p class="eyebrow">{v2.selectedPublications}</p></div>
+    <div class="publication-content">
+      {publications.length === 0 ? (
+        <div class="publication-empty">
+          <span>000</span>
+          <h2>{locale.publications.emptyTitle}</h2>
+          <p>{locale.publications.emptyBody}</p>
+          <a class="text-link" href={routeFor(lang, 'publications')}>{locale.nav.publications}</a>
+        </div>
+      ) : null}
+    </div>
+  </section>
+
+  <section class="honors-feature section-v2" data-reveal>
+    <header class="section-heading">
+      <div><span class="section-number">05</span><p class="eyebrow">{v2.selectedHonors}</p></div>
+      <a class="text-link" href={routeFor(lang, 'honors')}>{v2.viewAll}</a>
+    </header>
+    <div class="honors-editorial">
+      {FEATURED_HONORS.map((key, index) => {
+        const honor = HONORS.find((item) => item.key === key);
+        return <article><span>{honor?.year}</span><h3>{locale.honors[key]}</h3><small>{String(index + 1).padStart(2, '0')}</small></article>;
+      })}
+    </div>
+  </section>
+
+  <section class="global-feature section-v2" data-reveal>
+    <div class="global-mark" aria-hidden="true"><span>Tongji</span><i></i><span>GIST</span><i></i><span>CJK</span></div>
+    <div class="global-copy">
+      <p class="eyebrow">{v2.globalLabel}</p>
+      <h2>{v2.globalTitle}</h2>
+      <p>{v2.globalBody}</p>
+      <a class="text-link" href={routeFor(lang, 'global')}>{locale.nav.global}</a>
+    </div>
+  </section>
+
+  <section class="contact-cta section-v2" data-reveal>
+    <div><p class="eyebrow">{v2.contactLabel}</p><span class="contact-line" aria-hidden="true"></span></div>
+    <div>
+      <h2>{v2.contactTitle}</h2>
+      <p>{v2.contactBody}</p>
+      <a class="button" href={routeFor(lang, 'contact')}>{locale.home.quickContact}</a>
+    </div>
+  </section>
+</div>

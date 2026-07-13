@@ -21,6 +21,26 @@ export interface LocaleContent {
     canvasLabel: string;
     fallbackTitle: string;
   };
+  homeV2?: {
+    eyebrow: string;
+    roles: string[];
+    statement: string;
+    introLabel: string;
+    introTitle: string;
+    introBody: string;
+    selectedResearch: string;
+    selectedVentures: string;
+    selectedPublications: string;
+    selectedHonors: string;
+    globalLabel: string;
+    globalTitle: string;
+    globalBody: string;
+    contactLabel: string;
+    contactTitle: string;
+    contactBody: string;
+    viewAll: string;
+    roleLabel: string;
+  };
   common: {
     home: string;
     back: string;

@@ -5,5 +5,6 @@ export const profile = {
   affiliation: SITE.affiliation,
   company: SITE.organization,
   portrait: SITE.portraitPath,
+  portraitObjectPosition: '50% 24%',
   confirmedRoles: ['doctoral-candidate', 'researcher', 'founder'] as const,
 } as const;

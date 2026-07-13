@@ -1,5 +1,5 @@
 ---
-import { LANGUAGE_NAMES, LANGUAGES } from '@/data/site';
+import { LANGUAGE_NAMES, ENABLED_LOCALES } from '@/data/site';
 import { routeFor } from '@/utils/routes';
 ---
 <!doctype html>
@@ -9,11 +9,11 @@ import { routeFor } from '@/utils/routes';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="refresh" content={`2;url=${routeFor('en')}`} />
-    <title>YIHAO NEXUS — Choose language</title>
-    <style>html{color-scheme:dark;background:#061014;color:#edf5f2;font-family:system-ui,sans-serif}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:1rem}main{text-align:center}h1{font-weight:300;letter-spacing:.12em}p{color:#a9bbb8}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:.65rem;max-width:45rem;margin-top:2rem}a{color:#67d7c4;border:1px solid #25433f;border-radius:999px;padding:.7rem 1rem;text-decoration:none}</style>
+    <title>Yihao Bian — Choose language</title>
+    <style>html{color-scheme:light;background:#f2f1ec;color:#172226;font-family:system-ui,sans-serif}body{min-height:100vh;margin:0;display:grid;place-items:center;padding:1rem}main{text-align:center}h1{font-family:Georgia,serif;font-size:clamp(3rem,10vw,7rem);font-weight:400;letter-spacing:-.05em;margin:0}p{color:#657074}nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;max-width:45rem;margin-top:2rem}a{color:#167d75;border-bottom:1px solid #167d75;padding:.55rem .1rem;text-decoration:none}</style>
     <script is:inline>
       (() => {
-        const supported = ['en','zh-CN','ar','fr','ru','es','ja','ko'];
+        const supported = ['en','zh-CN'];
         const saved = localStorage.getItem('yihao-language');
         const raw = saved || navigator.language || 'en';
         const match = supported.find((code) => raw.toLowerCase() === code.toLowerCase()) || supported.find((code) => raw.toLowerCase().startsWith(code.split('-')[0].toLowerCase())) || 'en';
@@ -23,5 +23,5 @@ import { routeFor } from '@/utils/routes';
       })();
     </script>
   </head>
-  <body><main><h1>YIHAO NEXUS</h1><p>Choose a language / 选择语言</p><nav>{LANGUAGES.map((lang) => <a lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} href={routeFor(lang)}>{LANGUAGE_NAMES[lang]}</a>)}</nav></main></body>
+  <body><main><h1>Yihao Bian</h1><p>Choose a language / 选择语言</p><nav>{ENABLED_LOCALES.map((lang) => <a lang={lang} href={routeFor(lang)}>{LANGUAGE_NAMES[lang]}</a>)}</nav></main></body>
 </html>

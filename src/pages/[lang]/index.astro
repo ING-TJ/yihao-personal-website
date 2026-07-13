@@ -1,29 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import NexusExperience from '@/components/NexusExperience';
+import HomePage from '@/components/HomePage.astro';
 import { getLocale } from '@/content/locales';
-import { LANGUAGES, SECTIONS, SITE, type Lang } from '@/data/site';
-import { routeFor } from '@/utils/routes';
+import { LANGUAGES, type Lang } from '@/data/site';
 import '@/styles/home.css';
 
 export function getStaticPaths() { return LANGUAGES.map((lang) => ({ params: { lang } })); }
 const lang = Astro.params.lang as Lang;
 const locale = getLocale(lang);
-const links = Object.fromEntries(SECTIONS.map((section) => [section, routeFor(lang, section)])) as Record<(typeof SECTIONS)[number], string>;
 ---
-<BaseLayout lang={lang} immersive>
-  <section class="static-nexus" aria-labelledby="nexus-title">
-    <div class="static-core">
-      <div class="static-portrait" aria-label="Abstract portrait placeholder">YB</div>
-      <h1 id="nexus-title">{SITE.name}</h1>
-      <p>{SITE.nameZh}</p>
-      <p class="static-subtitle">{locale.home.subtitle}</p>
-      <p>{locale.home.role}</p>
-      <nav class="static-nodes" aria-label={locale.home.fallbackTitle}>
-        {SECTIONS.map((section, index) => <a class="static-node" href={links[section]}><span>{String(index + 1).padStart(2, '0')}</span>{locale.nav[section]}</a>)}
-      </nav>
-      <div class="static-actions"><a class="button" href={links.contact}>{locale.home.quickContact}</a><span class="button-muted" aria-disabled="true">{locale.home.cvPending}</span></div>
-    </div>
-  </section>
-  <NexusExperience client:only="react" locale={locale} links={links} contactUrl={links.contact} />
+<BaseLayout lang={lang}>
+  <HomePage lang={lang} locale={locale} />
 </BaseLayout>

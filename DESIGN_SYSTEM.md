@@ -1,54 +1,50 @@
-# YIHAO NEXUS Design System
+# Yihao Bian V2 Design System
 
-## Concept
+## Direction
 
-The site treats Yihao Bian as a center of gravity. Research, publication, ventures, honors, global exchange, life and contact form a connected personal universe. Water ripples, molecular bonds and distribution networks inform the motion and line language; the interface avoids literal planets, maps and cyberpunk imagery.
+V2 presents Yihao Bian as an international young scholar and environmental technology entrepreneur. The visual language is editorial, scientific, human and restrained. It uses asymmetry, large typography, fine rules and generous whitespace rather than a 3D universe or technology effects.
 
-## Color
+## Palette
 
-- Deep blue-black `#061014`: primary background
-- Carbon blue `#08171D`: elevated depth
-- Cold white `#EDF5F2`: primary text
-- Muted mineral `#A9BBB8`: secondary text
-- Water green `#67D7C4`: primary action and scientific signal
-- Deep aqua `#2F877D`: quiet labels and lines
-- Warm gold `#C9A967`: honors only, used sparingly
+- Warm paper `#F2F1EC`: primary background
+- Light paper `#F7F6F2`: subtle alternating surface
+- Charcoal `#172226`: primary text and solid actions
+- Deep navy `#16323B`: editorial headings
+- Water green `#167D75`: links, indices and research emphasis
+- Warm gold `#AA8248`: honors only
+- Fine line `#D0D2CD`: structure and rhythm
 
-No purple-blue gradient, rainbow neon or uncontrolled glow is permitted.
+Purple gradients, neon, glassmorphism, large shadows and glowing controls are prohibited.
 
 ## Typography
 
-No online font service is used. Latin text uses the operating system’s modern sans-serif stack with a restrained editorial serif for large headlines. CJK, Arabic and Cyrillic use appropriate system fallbacks. Headlines rely on scale, line length and spacing rather than decorative effects.
+The system uses only local operating-system fonts. Editorial English headlines use Iowan Old Style / Palatino / Times fallbacks. Interface and body text use the system sans-serif stack. Chinese, Japanese, Korean, Arabic and Cyrillic scripts keep the existing local system stacks.
 
-## Nodes
+Headline size communicates identity; thin rules and small uppercase labels create hierarchy. Chinese avoids excessive tracking and awkward isolated characters.
 
-- About: translucent water-green
-- Research: internal scientific particles
-- Publications: pale layered/mineral material
-- Ventures: quiet metallic core
-- Honors: warm-gold orbital ring
-- Global: deep blue with a restrained latitude ring
-- Life: soft mineral green
-- Contact: brightest aqua and largest hit clarity
+## Grid and spacing
 
-Labels remain HTML for readability, accessibility and multilingual rendering.
+- Maximum content width: 1320px
+- Responsive gutter: `clamp(1.25rem, 4.2vw, 4.75rem)`
+- Desktop: asymmetric two- and three-column editorial grids
+- Tablet: compressed two-column layouts
+- Mobile: purpose-built single-column flow, not a scaled desktop canvas
+- Sections use 6–11rem vertical whitespace and 1px rules instead of cards
+
+## Components
+
+- Header: Yihao Bian / YB wordmark, six primary links, EN / 中文
+- Footer: positioning statement, complete navigation and affiliation
+- Buttons: square corners, solid charcoal or fine outline
+- Research: numbered visual fields and staggered editorial list
+- Ventures: structured editorial rows that show only confirmed role information
+- Honors: dense year/name index, no timeline or floating medals
+- Portrait: real WebP when available; otherwise a clearly labelled abstract placeholder without a face
 
 ## Motion
 
-The time tunnel lasts about 2.5 seconds and uses forward motion without aggressive rotation. Nodes move slowly; connection signals remain subtle. Motion must pause when the page is hidden. `prefers-reduced-motion` and the user toggle skip the tunnel and stop decorative orbiting.
+Only 180–350ms opacity, 16px entrance and underline transitions are allowed. There is no looping decoration, cursor follower, parallax or loading sequence. `prefers-reduced-motion` disables all movement.
 
-## Chinese and English composition
+## Languages and accessibility
 
-English headings use compact editorial line lengths and moderate tracking. Chinese avoids excessive letter spacing and uses balanced short phrases. Both prioritize a clear hierarchy over card-heavy layouts.
-
-## Arabic RTL
-
-Arabic pages set `html dir="rtl"`. Inline alignment, navigation popovers, page summary margins, language controls, directional padding and track lines use logical CSS properties. Mixed Latin names remain readable and require native-speaker review.
-
-## Mobile
-
-Mobile is a separate composition: lower DPR, fewer particles, larger touch targets, safe-area-aware fixed controls and a two-column 2D node grid. The content pages restore normal vertical scrolling.
-
-## Accessibility
-
-All nodes have focusable HTML buttons or links. Focus rings use water green. Canvas has an alternative description and the full static navigation remains in the source. Text meets high-contrast targets; no information depends only on color or motion.
+English and Simplified Chinese are publicly shown in the switcher. Other locale files and routes remain available for future review. All content is semantic HTML, keyboard accessible and readable without JavaScript. Arabic retains `dir="rtl"` and logical CSS properties.

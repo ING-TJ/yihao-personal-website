@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Yihao Bian',
   nameZh: '卞逸豪',
-  concept: 'YIHAO NEXUS',
+  concept: 'Yihao Bian',
   canonicalUrl: 'https://yihao.shjingshuiji.cn',
   portraitPath: '/assets/profile/yihao-portrait.webp',
   organization: {
@@ -17,6 +17,10 @@ export const SITE = {
 export const LANGUAGES = ['en', 'zh-CN', 'ar', 'fr', 'ru', 'es', 'ja', 'ko'] as const;
 export type Lang = (typeof LANGUAGES)[number];
 
+// V2 public language switcher. Other locale files and routes remain available
+// for future review and re-enablement.
+export const ENABLED_LOCALES = ['en', 'zh-CN'] as const satisfies readonly Lang[];
+
 export const SECTIONS = [
   'about',
   'research',
@@ -28,6 +32,8 @@ export const SECTIONS = [
   'contact',
 ] as const;
 export type Section = (typeof SECTIONS)[number];
+
+export const PRIMARY_SECTIONS: Section[] = ['about', 'research', 'ventures', 'publications', 'honors', 'contact'];
 
 export const LANGUAGE_NAMES: Record<Lang, string> = {
   en: 'English',

@@ -147,3 +147,6 @@ vite.config.ts.timestamp-*
 
 # Local macOS metadata
 .DS_Store
+
+# Local visual review artifacts
+artifacts/

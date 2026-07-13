@@ -1,24 +1,29 @@
 ---
 import '@/styles/global.css';
-import { LANGUAGE_NAMES, LANGUAGES, SECTIONS, SITE, type Lang, type Section } from '@/data/site';
+import { ENABLED_LOCALES, LANGUAGE_NAMES, PRIMARY_SECTIONS, SITE, type Lang, type Section } from '@/data/site';
 import { getLocale } from '@/content/locales';
-import { routeFor } from '@/utils/routes';
+import { pathFor, routeFor } from '@/utils/routes';
 
 interface Props {
   lang: Lang;
   section?: Section;
+  path?: string;
   title?: string;
   description?: string;
-  immersive?: boolean;
 }
 
-const { lang, section, title, description, immersive = false } = Astro.props;
+const { lang, section, path = section ?? '', title, description } = Astro.props;
 const locale = getLocale(lang);
 const currentTitle = title ? `${title} — ${SITE.name}` : locale.meta.title;
 const currentDescription = description ?? locale.meta.description;
-const canonicalPath = `${lang}/${section ? `${section}/` : ''}`;
+const normalizedPath = path.replace(/^\/+|\/+$/g, '');
+const canonicalPath = `${lang}/${normalizedPath ? `${normalizedPath}/` : ''}`;
 const canonical = new URL(canonicalPath, Astro.site);
 const ogImage = new URL('og.png', Astro.site);
+const isHome = !normalizedPath;
+const v2 = locale.homeV2;
+const footerStatement = v2?.statement ?? locale.home.subtitle;
+const menuLabel = lang === 'zh-CN' ? '菜单' : 'Menu';
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -35,14 +40,14 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#061014" />
+    <meta name="theme-color" content="#f2f1ec" />
     <meta name="description" content={currentDescription} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}icons/favicon-32.png`} />
     <link rel="manifest" href={`${import.meta.env.BASE_URL}site.webmanifest`} />
-    {LANGUAGES.map((code) => <link rel="alternate" hreflang={code} href={new URL(`${code}/${section ? `${section}/` : ''}`, Astro.site)} />)}
-    <link rel="alternate" hreflang="x-default" href={new URL('en/', Astro.site)} />
+    {ENABLED_LOCALES.map((code) => <link rel="alternate" hreflang={code} href={new URL(`${code}/${normalizedPath ? `${normalizedPath}/` : ''}`, Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(`en/${normalizedPath ? `${normalizedPath}/` : ''}`, Astro.site)} />
     <meta property="og:type" content="profile" />
     <meta property="og:title" content={currentTitle} />
     <meta property="og:description" content={currentDescription} />
@@ -53,35 +58,110 @@ const jsonLd = {
     <meta name="twitter:description" content={currentDescription} />
     <meta name="twitter:image" content={ogImage} />
     <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script is:inline>document.documentElement.classList.add('has-js');</script>
     <title>{currentTitle}</title>
   </head>
-  <body class:list={{ immersive }} data-home={section ? routeFor(lang) : undefined}>
-    <a class="sr-only" href="#main">Skip to content</a>
-    <header class="site-header">
-      <a class="brand" href={routeFor(lang)} aria-label={`${SITE.concept} — ${locale.common.home}`}>
-        <span class="brand-mark" aria-hidden="true"></span><span>{SITE.concept}</span>
-      </a>
-      <div class="header-tools">
-        <details class="header-details">
-          <summary aria-label={locale.common.menu}>{locale.common.menu}</summary>
-          <nav class="header-popover" aria-label={locale.common.menu}>
-            {SECTIONS.map((item) => <a href={routeFor(lang, item)} aria-current={section === item ? 'page' : undefined}>{locale.nav[item]}</a>)}
-          </nav>
-        </details>
-        <details class="header-details">
-          <summary aria-label={locale.common.language}>{LANGUAGE_NAMES[lang]}</summary>
-          <nav class="header-popover" aria-label={locale.common.language}>
-            {LANGUAGES.map((code) => <a data-language={code} lang={code} dir={code === 'ar' ? 'rtl' : 'ltr'} href={routeFor(code, section)} aria-current={code === lang ? 'page' : undefined}>{LANGUAGE_NAMES[code]}</a>)}
-          </nav>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-site-header>
+      <div class="header-inner">
+        <a class="wordmark" href={routeFor(lang)} aria-label={`${SITE.name} — ${lang === 'zh-CN' ? '首页' : 'Home'}`}>
+          <span class="wordmark-initials" aria-hidden="true">YB</span>
+          <span class="wordmark-name"><strong>{SITE.name}</strong><small>{SITE.nameZh}</small></span>
+        </a>
+
+        <nav class="desktop-nav" aria-label={locale.common.menu}>
+          {PRIMARY_SECTIONS.map((item) => <a href={routeFor(lang, item)} aria-current={section === item ? 'page' : undefined}>{locale.nav[item]}</a>)}
+        </nav>
+
+        <div class="desktop-languages" aria-label={locale.common.language}>
+          {ENABLED_LOCALES.map((code, index) => <><a data-language={code} href={pathFor(code, normalizedPath)} aria-current={code === lang ? 'page' : undefined}>{code === 'en' ? 'EN' : '中文'}</a>{index === 0 && <span aria-hidden="true">/</span>}</>)}
+        </div>
+
+        <details class="mobile-menu" data-mobile-menu>
+          <summary aria-label={menuLabel}><span class="menu-label">{menuLabel}</span><span class="menu-icon" aria-hidden="true"></span></summary>
+          <div class="mobile-panel">
+            <nav aria-label={locale.common.menu}>
+              {PRIMARY_SECTIONS.map((item, index) => <a href={routeFor(lang, item)} aria-current={section === item ? 'page' : undefined}><span>0{index + 1}</span>{locale.nav[item]}</a>)}
+            </nav>
+            <div class="mobile-languages">
+              {ENABLED_LOCALES.map((code) => <a data-language={code} href={pathFor(code, normalizedPath)} aria-current={code === lang ? 'page' : undefined}>{LANGUAGE_NAMES[code]}</a>)}
+            </div>
+          </div>
         </details>
       </div>
     </header>
+
     <main id="main"><slot /></main>
+
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div>
+          <p class="footer-kicker">Yihao Bian · 卞逸豪</p>
+          <p class="footer-statement">{footerStatement}</p>
+        </div>
+        <nav class="footer-nav" aria-label={locale.common.menu}>
+          {PRIMARY_SECTIONS.map((item) => <a href={routeFor(lang, item)}>{locale.nav[item]}</a>)}
+          <a href={routeFor(lang, 'global')}>{locale.nav.global}</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>© {new Date().getFullYear()} Yihao Bian</span>
+        <span>{SITE.affiliation.name}</span>
+        <span>{isHome ? locale.home.subtitle : locale.sectionMeta[section ?? 'about'].kicker}</span>
+      </div>
+    </footer>
+
     <script is:inline>
       document.querySelectorAll('[data-language]').forEach((link) => link.addEventListener('click', () => localStorage.setItem('yihao-language', link.getAttribute('data-language') || 'en')));
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && document.body.dataset.home) window.location.assign(document.body.dataset.home);
-      });
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      if (mobileMenu) {
+        const summary = mobileMenu.querySelector('summary');
+        const menuLinks = [...mobileMenu.querySelectorAll('a')];
+        const closeMenu = (restoreFocus = false) => {
+          mobileMenu.removeAttribute('open');
+          if (restoreFocus) summary?.focus();
+        };
+        mobileMenu.addEventListener('toggle', () => {
+          document.body.classList.toggle('menu-open', mobileMenu.hasAttribute('open'));
+          if (mobileMenu.hasAttribute('open')) requestAnimationFrame(() => menuLinks[0]?.focus());
+        });
+        menuLinks.forEach((link) => link.addEventListener('click', () => closeMenu(false)));
+        document.addEventListener('click', (event) => {
+          if (mobileMenu.hasAttribute('open') && !mobileMenu.contains(event.target)) closeMenu(false);
+        });
+        document.addEventListener('keydown', (event) => {
+          if (!mobileMenu.hasAttribute('open')) return;
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            closeMenu(true);
+            return;
+          }
+          if (event.key === 'Tab' && menuLinks.length) {
+            const first = menuLinks[0];
+            const last = menuLinks[menuLinks.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              summary?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              summary?.focus();
+            }
+          }
+        });
+      }
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduced && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        }), { threshold: 0.12 });
+        document.querySelectorAll('[data-reveal]').forEach((item) => observer.observe(item));
+      } else {
+        document.querySelectorAll('[data-reveal]').forEach((item) => item.classList.add('is-visible'));
+      }
     </script>
   </body>
 </html>

@@ -1,18 +1,17 @@
-# YIHAO NEXUS
+# Yihao Bian Personal Website
 
-Yihao Bian（卞逸豪）的沉浸式多语言个人网站，以“个人宇宙”为核心隐喻，将科研、论文、创业、荣誉、国际交流、生活与联系方式组织成八个围绕人物中心运行的知识节点。
+Yihao Bian（卞逸豪）的多语言个人网站，以“国际青年学者 + 环境科技创业者”为定位，通过编辑式排版呈现科研、论文、创业、荣誉、国际交流、生活与联系方式。
 
 计划正式域名：`https://yihao.shjingshuiji.cn`。当前代码已经为该域名做好准备，但在 DNS 与 GitHub Pages 自定义域名验证完成前，不应宣称正式域名可用，也不要将二维码送印。
 
 ## 技术架构
 
 - Astro 7 静态输出：路由、SEO、sitemap、语义化页面
-- React 19 + TypeScript：首页交互状态
-- Three.js + React Three Fiber + Drei：粒子、水环、节点、连接线与相机运动
+- TypeScript：数据、内容与路由类型约束
 - 本地 CSS 设计系统：无外部字体、无 CDN、无追踪脚本
 - GitHub Actions + GitHub Pages：`main` 分支自动构建与部署
 
-3D Canvas 不是内容的唯一载体。每个栏目均有普通 HTML 页面；JavaScript 或 WebGL 不可用时，首页自动保留完整二维导航。
+首页和全部栏目均为语义化 HTML，不依赖 WebGL，JavaScript 关闭后仍能浏览主要内容与导航。
 
 ## 安装与运行
 
@@ -55,7 +54,7 @@ npm test
 
 `public/assets/profile/yihao-portrait.webp`
 
-当前首页使用无具体面孔的程序化抽象占位，不包含生成或伪造的人脸。正式照片到位后，应在 `NexusExperience.tsx` 中启用图像显示并检查手机端裁切、对比度和文件大小。
+当前首页使用无具体面孔的编辑式抽象占位，不包含生成或伪造的人脸。正式照片到位后，构建过程会自动启用该图片；仍需检查手机端裁切、对比度和文件大小。
 
 ### 增加论文
 
@@ -72,12 +71,12 @@ npm test
 3. 在 `src/content/locales/index.ts` 注册。
 4. 更新验证脚本中的语言列表，并执行全部检查。
 
-## 二维与减少动态效果
+## 动效与无障碍
 
-- 系统开启 `prefers-reduced-motion` 时自动跳过穿梭。
-- 用户选择保存在 `localStorage`。
-- URL 加 `?mode=2d` 可直接进入二维版本。
-- WebGL context 丢失时自动恢复 HTML 版本。
+- 页面只使用轻量淡入、上移与下划线过渡。
+- 系统开启 `prefers-reduced-motion` 时自动禁用位移动效。
+- 所有导航与内容均使用语义化 HTML 和键盘可访问链接。
+- 英文与简体中文为当前公开语言；其余语言文件与路由保留供未来复核。
 
 ## 二维码与电子名片
 

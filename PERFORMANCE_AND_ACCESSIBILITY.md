@@ -2,34 +2,32 @@
 
 ## Runtime quality
 
-- Procedural geometry replaces large GLB models.
-- Desktop and mobile use capped device pixel ratios.
-- Low-core devices receive a smaller particle field.
-- Particles use one buffer geometry and one material.
-- No real-time shadows or heavy post-processing are used.
-- Animation pauses when the document is hidden.
-- Non-home images should use lazy loading and WebP/AVIF.
+- The site is statically rendered by Astro and does not ship React, Three.js or WebGL.
+- The first viewport is readable HTML before any JavaScript runs.
+- No external fonts, translation APIs, tracking scripts, audio or large 3D assets are loaded.
+- Future photography should use WebP or AVIF with explicit dimensions and appropriate lazy loading.
+- GitHub Pages project paths and the future custom-domain root are both supported.
 
 ## Motion
 
-The entry sequence is approximately 2.5 seconds, with fast-to-slow forward motion and no aggressive camera roll. A Skip control is immediately available. System reduced-motion preferences and the site control skip the sequence; the user choice persists locally.
-
-## WebGL fallback
-
-The HTML nexus is rendered before React. It remains usable if JavaScript fails, WebGL2 is unavailable, `?mode=2d` is selected, or the WebGL context is lost. The fallback is a designed interface, not an error page.
+Motion is limited to 180–350ms opacity, 16px entrance and underline transitions. There is no loading sequence, looping decoration, camera motion, cursor follower or parallax. `prefers-reduced-motion` disables transitions and shows all content immediately.
 
 ## Keyboard and screen readers
 
-- Every node has a real button or link.
-- Enter and Space activate node buttons natively.
-- Visible focus rings use the primary aqua token.
-- Every section contains semantic headings, articles and navigation links.
-- Canvas has an alternative description; text is never baked into a texture.
+- Header, mobile menu, language switcher, content lists and footer use semantic HTML.
+- All actions are links or native controls with visible focus outlines.
+- Headings follow a meaningful hierarchy.
+- Empty publications use one restrained empty state; empty research and venture sections are hidden rather than filled with invented content.
+- JavaScript failure does not remove navigation or content.
 
-## Mobile
+## Responsive behavior
 
-Touch targets are at least 44 CSS pixels where practical. Fixed controls include safe-area insets. Canvas disables accidental page gestures only on the immersive homepage; content routes restore standard vertical scrolling. No gyroscope permission, fullscreen or landscape orientation is requested.
+- 1440px uses asymmetric editorial columns and large type.
+- 1024px switches to a compact menu and compressed two-column hero.
+- 390px and 375px use a purpose-built single-column flow with 48px+ primary actions.
+- Logical CSS properties preserve RTL behavior for retained Arabic routes.
+- Horizontal overflow is treated as a release blocker.
 
 ## Release checks
 
-Run the automated suite, then manually test current iOS Safari, Android Chrome, desktop Safari/Chrome/Firefox, keyboard-only navigation, VoiceOver/TalkBack spot checks, Arabic RTL and a low-power device. Confirm no severe console error and no broken internal route before launch.
+Run the automated suite, then manually inspect current Safari, Chrome and Firefox; 1440px, 1024px, 390px and 375px layouts; keyboard navigation; English/Chinese switching; retained Arabic RTL; and real-device image loading before launch.
